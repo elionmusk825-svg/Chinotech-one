@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#111827">
+<meta name="description" content="CHINOTECH ONE MARKETPLACE">
+<link rel="manifest" href="manifest.webmanifest">
+<title>CHINOTECH ONE MARKETPLACE</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f3f4f6;color:#111827}
+button,input,select,textarea{font:inherit}button{cursor:pointer}
+header{position:sticky;top:0;z-index:20;background:#111827;color:#fff;box-shadow:0 3px 15px #0003}
+.top{max-width:1500px;margin:auto;padding:10px 14px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:9px;min-width:210px}.logoIcon{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#facc15,#f97316);display:grid;place-items:center;font-weight:900;color:#111827}.logo b{font-size:19px}.logo small{display:block;font-size:9px;letter-spacing:2px;color:#facc15}
+.search{flex:1;display:flex;min-width:230px}.search input{width:100%;padding:12px;border:0;outline:0;border-radius:8px 0 0 8px}.search button{border:0;background:#facc15;padding:0 18px;border-radius:0 8px 8px 0}
+.actions{display:flex;gap:6px}.actions button{border:1px solid #374151;background:#1f2937;color:#fff;padding:10px;border-radius:7px}
+.nav{overflow:auto;background:#1f2937;white-space:nowrap}.navin{max-width:1500px;margin:auto;display:flex}.nav button{background:none;color:#fff;border:0;padding:10px 12px;font-size:12px}
+.hero{max-width:1500px;margin:18px auto;padding:0 14px}.heroBox{min-height:320px;border-radius:18px;padding:38px;color:#fff;background:linear-gradient(90deg,#111827ee,#11182744),url("https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1800&q=85") center/cover}.hero h1{font-size:46px;margin:0 0 10px}.hero p{max-width:700px;line-height:1.6}.hero button,.pay{border:0;border-radius:8px;padding:13px 18px;font-weight:800}.yellow{background:#facc15;color:#111827}.white{background:#fff;color:#111827;margin-left:7px}
+.section{max-width:1500px;margin:24px auto;padding:0 14px}.title{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(115px,1fr));gap:9px}.cat{background:#fff;border:1px solid #e5e7eb;border-radius:11px;padding:13px 7px;text-align:center}.cat button{border:0;background:none;font-weight:700;font-size:11px}.emoji{font-size:27px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.stat{background:#fff;border:1px solid #e5e7eb;border-radius:11px;padding:18px}.stat strong{display:block;font-size:25px;margin-top:5px}.stat span{font-size:11px;color:#6b7280}
+.filters{display:flex;gap:8px;flex-wrap:wrap;background:#fff;padding:12px;border:1px solid #e5e7eb;border-radius:11px;margin-bottom:14px}.filters input,.filters select{padding:10px;border:1px solid #d1d5db;border-radius:7px}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:13px}.card{background:#fff;border:1px solid #e5e7eb;border-radius:11px;overflow:hidden}.pic{height:180px;background:#eee;position:relative}.pic img{width:100%;height:100%;object-fit:cover}.badge{position:absolute;top:8px;left:8px;background:#ef4444;color:#fff;padding:5px 7px;border-radius:5px;font-size:9px;font-weight:800}.body{padding:10px}.catname{font-size:10px;color:#6b7280}.name{font-weight:800;min-height:36px;margin-top:4px}.stars{color:#f59e0b;font-size:11px;margin:5px 0}.price{font-size:18px;font-weight:900}.old{text-decoration:line-through;color:#9ca3af;font-size:10px;margin-left:4px}.btns{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:9px}.btns button{border:0;border-radius:6px;padding:8px;font-size:10px;font-weight:800}.add{background:#facc15}.view{background:#111827;color:#fff}
+.chart{background:#fff;border:1px solid #e5e7eb;border-radius:11px;padding:18px}.bars{height:220px;display:flex;gap:10px;align-items:flex-end}.bar{flex:1;min-width:22px;background:linear-gradient(#facc15,#f97316);border-radius:5px 5px 0 0;position:relative}.bar span{position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);font-size:9px}
+.overlay,.modal{position:fixed;inset:0;background:#0009;z-index:50;display:none}.overlay.show,.modal.show{display:block}.drawer{position:absolute;right:0;top:0;width:min(440px,96%);height:100%;background:#fff;padding:18px;overflow:auto}.head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ddd;padding-bottom:10px}.close{border:0;background:#ef4444;color:#fff;width:32px;height:32px;border-radius:6px}.cartItem{display:flex;gap:9px;padding:12px 0;border-bottom:1px solid #eee}.cartItem img{width:70px;height:70px;object-fit:cover;border-radius:7px}.ci{flex:1}.qty{display:flex;gap:6px;align-items:center;margin-top:6px}.qty button{width:25px;height:25px;border:1px solid #ccc;background:#fff;border-radius:5px}.pay{width:100%;background:#facc15;margin-top:12px}.modal{align-items:center;justify-content:center;padding:15px}.modal.show{display:flex}.modalbox{width:min(650px,100%);max-height:92vh;overflow:auto;background:#fff;border-radius:13px;padding:18px}.modalbox img{width:100%;height:320px;object-fit:cover;border-radius:9px}.field{margin:10px 0}.field label{display:block;font-size:12px;font-weight:800;margin-bottom:4px}.field input,.field select,.field textarea{width:100%;padding:10px;border:1px solid #d1d5db;border-radius:7px}.field textarea{min-height:90px}
+footer{background:#111827;color:#fff;padding:35px 15px;margin-top:30px}.foot{max-width:1500px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}footer h3{color:#facc15}footer p,footer li{font-size:12px;color:#d1d5db;line-height:1.7}footer ul{list-style:none;padding:0}
+.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,120px);background:#111827;color:#fff;padding:12px 16px;border-radius:8px;z-index:100;transition:.25s}.toast.show{transform:translate(-50%,0)}
+@media(max-width:1100px){.grid{grid-template-columns:repeat(4,1fr)}}@media(max-width:800px){.grid{grid-template-columns:repeat(3,1fr)}.stats{grid-template-columns:repeat(2,1fr)}.foot{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:34px}}@media(max-width:520px){.grid{grid-template-columns:repeat(2,1fr)}.pic{height:145px}.foot{grid-template-columns:1fr}.heroBox{padding:25px 18px}}
+</style>
+</head>
+<body>
+<header>
+<div class="top">
+<div class="logo"><div class="logoIcon">C1</div><div><b>CHINOTECH ONE</b><small>MARKETPLACE</small></div></div>
+<div class="search"><input id="q" placeholder="Search phones, cars, wigs, TVs..." oninput="render()"><button onclick="render()">🔍</button></div>
+<div class="actions"><button onclick="openCart()">🛒 <span id="count">0</span></button><button onclick="openSell()">SELL</button></div>
+</div>
+<div class="nav"><div class="navin" id="nav"></div></div>
+</header>
+
+<section class="hero"><div class="heroBox"><h1>CHINOTECH ONE MARKETPLACE</h1><p>Phones, TVs, fans, cars, laptops, clippers, wigs, weave-on, nails, shoes, clothing, watches, jewelry, drones, lights, appliances and more.</p><button class="yellow" onclick="document.getElementById('products').scrollIntoView()">🛍️ SHOP NOW</button><button class="white" onclick="openSell()">SELL YOUR PRODUCT</button></div></section>
+
+<section class="section">
+<div class="stats">
+<div class="stat"><span>PRODUCTS</span><strong id="statP">0</strong></div>
+<div class="stat"><span>CATEGORIES</span><strong id="statC">0</strong></div>
+<div class="stat"><span>LOW-PRICE ITEMS</span><strong>100%</strong></div>
+<div class="stat"><span>OPEN</span><strong>24/7</strong></div>
+</div>
+</section>
+
+<section class="section"><div class="title"><h2>Shop by category</h2></div><div class="cats" id="cats"></div></section>
+
+<section class="section"><div class="title"><h2>Marketplace chart</h2></div>
+<div class="chart"><div class="bars">
+<div class="bar" style="height:55%"><span>Phones</span></div><div class="bar" style="height:72%"><span>Fashion</span></div><div class="bar" style="height:48%"><span>Cars</span></div><div class="bar" style="height:82%"><span>Electronics</span></div><div class="bar" style="height:62%"><span>Beauty</span></div><div class="bar" style="height:75%"><span>Home</span></div><div class="bar" style="height:88%"><span>Gadgets</span></div>
+</div></div></section>
+
+<section class="section" id="products">
+<div class="title"><h2 id="ptitle">All Products</h2><span id="results"></span></div>
+<div class="filters">
+<input id="fq" placeholder="Search products..." oninput="render()">
+<select id="cat" onchange="render()"><option value="all">All categories</option></select>
+<select id="sort" onchange="render()"><option value="default">Recommended</option><option value="low">Price low → high</option><option value="high">Price high → low</option><option value="name">Name A → Z</option></select>
+</div>
+<div class="grid" id="grid"></div>
+</section>
+
+<div class="overlay" id="cartOverlay"><div class="drawer"><div class="head"><h2>🛒 Cart</h2><button class="close" onclick="closeCart()">×</button></div><div id="cartItems"></div><h2>Total: ₦<span id="total">0</span></h2><button class="pay" onclick="checkout()">💳 PAY WITH PAYSTACK</button><p style="font-size:11px;color:#6b7280">Checkout opens your CHINOTECH ONE Paystack Payment Page.</p></div></div>
+
+<div class="modal" id="productModal"><div class="modalbox"><div class="head"><h2 id="mname"></h2><button class="close" onclick="closeProduct()">×</button></div><img id="mimg"><p id="mdesc"></p><h2>₦<span id="mprice"></span></h2><button class="pay" onclick="buySelected()">💳 BUY NOW</button></div></div>
+
+<div class="modal" id="sellModal"><div class="modalbox"><div class="head"><h2>Sell on CHINOTECH ONE</h2><button class="close" onclick="closeSell()">×</button></div>
+<form onsubmit="sell(event)">
+<div class="field"><label>Product name</label><input id="sn" required></div>
+<div class="field"><label>Category</label><select id="sc"></select></div>
+<div class="field"><label>Price ₦</label><input id="sp" type="number" required></div>
+<div class="field"><label>Specific image URL</label><input id="si" placeholder="https://..."></div>
+<div class="field"><label>Description</label><textarea id="sd"></textarea></div>
+<button class="yellow">PUBLISH PRODUCT</button>
+</form></div></div>
+
+<div class="toast" id="toast"></div>
+
+<footer><div class="foot">
+<div><h3>CHINOTECH ONE</h3><p>Large marketplace demo with fixed product photographs, cart, seller form and Paystack checkout.</p></div>
+<div><h3>Categories</h3><p>Phones • TVs • Cars • Fashion • Beauty • Electronics • Home • Gadgets</p></div>
+<div><h3>Seller</h3><p>Add products with a specific image URL using the SELL button.</p></div>
+<div><h3>Payment</h3><p>Checkout uses the supplied CHINOTECH ONE Paystack Payment Page.</p></div>
+</div></footer>
+
+<script>
+const PAYSTACK="https://paystack.shop/pay/-lx13gxkac";
+
+const cats=[
+["Phones","📱"],["Televisions","📺"],["Fans","🌀"],["Laptops","💻"],["Cars","🚗"],["Clippers","✂️"],["Wigs","💇"],["Weave-on","💇"],["Nails","💅"],["Shoes","👟"],["Boots","🥾"],["Men Clothes","👔"],["Women Clothes","👗"],["Watches","⌚"],["Clocks","🕐"],["Gold","🥇"],["Silver","🥈"],["Diamond","💎"],["Necklaces","📿"],["Beads","📿"],["Eyeglasses","👓"],["Drones","🚁"],["Lights","💡"],["Bulbs","💡"],["Home Appliances","🏠"],["Speakers","🔊"],["Headphones","🎧"],["Cameras","📷"],["Gaming","🎮"],["Tablets","📱"],["Power Banks","🔋"],["Chargers","🔌"],["Bags","🎒"],["Perfumes","🌸"],["Beauty","💄"],["Sports","⚽"],["Tools","🔧"],["Supermarket","🛒"]
+];
+
+/* Fixed, real photographs. Wikimedia Commons files are used where exact models were found.
+   Other fixed Unsplash photographs are category/product photographs, not claims of official brand photography. */
+const img={
+iphone13:"https://commons.wikimedia.org/wiki/Special:Redirect/file/IPhone_13.jpg",
+s24:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Samsung_Galaxy_S24.jpg",
+s24plus:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Samsung_Galaxy_S24%2B.jpg",
+macair:"https://commons.wikimedia.org/wiki/Special:Redirect/file/MacBook_Air_.jpg",
+macm4:"https://commons.wikimedia.org/wiki/Special:Redirect/file/MacBook_Air_%2813-inch%2C_M4%2C_Silver%29.jpg",
+lambo:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Lamborghini_Aventador.jpg",
+lambo2:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Lamborghini_Aventador_%287170965112%29.jpg",
+ferrari:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Ferrari_LaFerrari.jpg",
+ferrarisf:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Ferrari_SF90_Stradale_%E2%80%93_f_02052026.jpg",
+toyota:"https://commons.wikimedia.org/wiki/Special:Redirect/file/2025_Toyota_Camry.jpg",
+camry:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Toyota_Camry_2.5_Hybrid_Ascent_Sport_%28IX%29_%E2%80%93_f_02012026.jpg",
+tv:"https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=900&q=85",
+fan:"https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=900&q=85",
+shoes:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=85",
+watch:"https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=900&q=85",
+jewelry:"https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=900&q=85",
+drone:"https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=900&q=85",
+clothes:"https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=900&q=85",
+headphones:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=85",
+camera:"https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=900&q=85",
+laptop:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=85",
+car:"https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=85",
+hair:"https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=85",
+beauty:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=85",
+light:"https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=900&q=85",
+speaker:"https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=900&q=85",
+bag:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=85",
+perfume:"https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=900&q=85",
+sports:"https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=900&q=85",
+tools:"https://images.unsplash.com/photo-1581147036324-c17ac41f3b6a?auto=format&fit=crop&w=900&q=85"
+};
+
+let products=[
+["Phones","iPhone 13",350000,img.iphone13],["Phones","Samsung Galaxy S24",690000,img.s24],["Phones","Samsung Galaxy S24+",750000,img.s24plus],
+["Phones","Android Smartphone",210000,"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=85"],
+["Televisions","Smart TV 43-inch",380000,img.tv],["Televisions","Smart TV 55-inch",620000,"https://images.unsplash.com/photo-1593784991095-a205069470b6?auto=format&fit=crop&w=900&q=85"],
+["Fans","Standing Fan",55000,img.fan],["Fans","Ceiling Fan",80000,"https://images.unsplash.com/photo-1545259741-2ea3ebf61fa3?auto=format&fit=crop&w=900&q=85"],
+["Laptops","MacBook Air M1",850000,img.macair],["Laptops","MacBook Air M4",1300000,img.macm4],["Laptops","Laptop Computer",450000,img.laptop],
+["Cars","Lamborghini Aventador",85000000,img.lambo],["Cars","Lamborghini Aventador — second photo",85000000,img.lambo2],
+["Cars","Ferrari LaFerrari",70000000,img.ferrari],["Cars","Ferrari SF90 Stradale",85000000,img.ferrarisf],["Cars","Toyota Camry 2025",18000000,img.toyota],["Cars","Toyota Camry Hybrid",22000000,img.camry],["Cars","Sports Car",25000000,img.car],
+["Clippers","Professional Hair Clipper",45000,img.hair],["Clippers","Barber Trimmer",35000,img.hair],
+["Wigs","Human Hair Wig",180000,img.hair],["Wigs","Fashion Wig",95000,img.hair],["Weave-on","Human Hair Weave-on",120000,img.hair],
+["Nails","Acrylic Nail Set",15000,img.beauty],["Nails","Press-on Nails",8000,img.beauty],
+["Shoes","Nike-style Sneakers",85000,img.shoes],["Shoes","Running Shoes",65000,"https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=900&q=85"],
+["Boots","Leather Boots",70000,"https://images.unsplash.com/photo-1520639888713-7851133b1ed0?auto=format&fit=crop&w=900&q=85"],
+["Men Clothes","Men T-Shirt",18000,img.clothes],["Men Clothes","Men Jacket",50000,"https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=900&q=85"],
+["Women Clothes","Women Fashion Dress",45000,img.clothes],["Women Clothes","Women Jacket",55000,"https://images.unsplash.com/photo-1544022613-e87ca75a784a?auto=format&fit=crop&w=900&q=85"],
+["Watches","Wrist Watch",70000,img.watch],["Watches","Luxury Watch",150000,img.watch],
+["Clocks","Wall Clock",25000,"https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?auto=format&fit=crop&w=900&q=85"],
+["Gold","Gold Jewelry",450000,img.jewelry],["Silver","Silver Jewelry",120000,img.jewelry],["Diamond","Diamond-style Jewelry",350000,img.jewelry],["Necklaces","Fashion Necklace",25000,img.jewelry],["Beads","Bead Necklace",20000,img.jewelry],["Eyeglasses","Fashion Eyeglasses",25000,"https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=900&q=85"],
+["Drones","Camera Drone",350000,img.drone],["Drones","Mini Drone",120000,img.drone],
+["Lights","LED Light",25000,img.light],["Bulbs","LED Bulb",5000,"https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=900&q=85"],
+["Home Appliances","Home Appliance",85000,"https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=900&q=85"],
+["Speakers","Bluetooth Speaker",45000,img.speaker],["Headphones","Wireless Headphones",55000,img.headphones],
+["Cameras","Digital Camera",350000,img.camera],["Gaming","Gaming Console",850000,"https://images.unsplash.com/photo-1605901309584-818e25960a8f?auto=format&fit=crop&w=900&q=85"],
+["Tablets","Tablet",250000,"https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=900&q=85"],
+["Power Banks","20,000mAh Power Bank",30000,"https://images.unsplash.com/photo-1609592424837-1f1c7e8d4f4b?auto=format&fit=crop&w=900&q=85"],
+["Chargers","USB-C Charger",15000,"https://images.unsplash.com/photo-1609592424837-1f1c7e8d4f4b?auto=format&fit=crop&w=900&q=85"],
+["Bags","Backpack",25000,img.bag],["Perfumes","Luxury Perfume",85000,img.perfume],["Beauty","Makeup Kit",45000,img.beauty],
+["Sports","Sports Shoes",55000,img.sports],["Tools","Tool Set",85000,img.tools],["Supermarket","Kitchen & Grocery Pack",25000,"https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=85"]
+].map((p,i)=>({id:i+1,category:p[0],name:p[1],price:p[2],image:p[3],description:"Marketplace product. Verify stock, exact model and condition with the seller before purchase.",rating:(4+(i%10)/10).toFixed(1)}));
+
+let cart=[],selected=null;
+
+function money(n){return Number(n).toLocaleString("en-NG")}
+function toast(t){let x=document.getElementById("toast");x.textContent=t;x.classList.add("show");setTimeout(()=>x.classList.remove("show"),2200)}
+
+cats.forEach(([name,e])=>{
+document.getElementById("cats").insertAdjacentHTML("beforeend",`<div class="cat"><div class="emoji">${e}</div><button onclick="choose('${name}')">${name}</button></div>`);
+document.getElementById("nav").insertAdjacentHTML("beforeend",`<button onclick="choose('${name}')">${name}</button>`);
+document.getElementById("cat").insertAdjacentHTML("beforeend",`<option>${name}</option>`);
+document.getElementById("sc").insertAdjacentHTML("beforeend",`<option>${name}</option>`);
+});
+
+function choose(c){document.getElementById("cat").value=c;document.getElementById("ptitle").textContent=c+" Products";render();document.getElementById("products").scrollIntoView({behavior:"smooth"})}
+
+function render(){
+let q=(document.getElementById("q").value+" "+document.getElementById("fq").value).toLowerCase();
+let c=document.getElementById("cat").value,s=document.getElementById("sort").value;
+let list=products.filter(p=>(c==="all"||p.category===c)&&(!q||p.name.toLowerCase().includes(q)||p.category.toLowerCase().includes(q)));
+if(s==="low")list.sort((a,b)=>a.price-b.price);if(s==="high")list.sort((a,b)=>b.price-a.price);if(s==="name")list.sort((a,b)=>a.name.localeCompare(b.name));
+document.getElementById("results").textContent=list.length+" products";
+document.getElementById("grid").innerHTML=list.map(p=>`<div class="card"><div class="pic"><img src="${p.image}" alt="${p.name}" loading="lazy"><span class="badge">LOW PRICE</span></div><div class="body"><div class="catname">${p.category}</div><div class="name">${p.name}</div><div class="stars">★★★★★ ${p.rating}</div><div class="price">₦${money(p.price)} <span class="old">₦${money(p.price*1.2)}</span></div><div class="btns"><button class="add" onclick="add(${p.id})">🛒 ADD</button><button class="view" onclick="openProduct(${p.id})">VIEW</button></div></div></div>`).join("");
+}
+
+function add(id){let p=products.find(x=>x.id===id),i=cart.find(x=>x.id===id);if(i)i.qty++;else cart.push({...p,qty:1});updateCart();toast(p.name+" added")}
+function updateCart(){document.getElementById("count").textContent=cart.reduce((a,b)=>a+b.qty,0);let box=document.getElementById("cartItems");box.innerHTML=cart.length?cart.map(x=>`<div class="cartItem"><img src="${x.image}"><div class="ci"><b>${x.name}</b><div>₦${money(x.price)}</div><div class="qty"><button onclick="qty(${x.id},-1)">−</button><span>${x.qty}</span><button onclick="qty(${x.id},1)">+</button><button onclick="removeItem(${x.id})" style="margin-left:auto;border:0;background:none;color:#ef4444">Remove</button></div></div></div>`).join(""):"<p style='text-align:center;padding:35px'>Your cart is empty.</p>";document.getElementById("total").textContent=money(cart.reduce((a,b)=>a+b.price*b.qty,0))}
+function qty(id,n){let x=cart.find(i=>i.id===id);if(!x)return;x.qty+=n;if(x.qty<1)cart=cart.filter(i=>i.id!==id);updateCart()}
+function removeItem(id){cart=cart.filter(i=>i.id!==id);updateCart()}
+function openCart(){document.getElementById("cartOverlay").classList.add("show")}
+function closeCart(){document.getElementById("cartOverlay").classList.remove("show")}
+
+function checkout(){if(!cart.length)return toast("Your cart is empty");let total=cart.reduce((a,b)=>a+b.price*b.qty,0);window.location.href=PAYSTACK+"?amount="+encodeURIComponent(total)}
+function buy(p){window.location.href=PAYSTACK+"?amount="+encodeURIComponent(p.price)}
+
+function openProduct(id){selected=products.find(x=>x.id===id);document.getElementById("mname").textContent=selected.name;document.getElementById("mimg").src=selected.image;document.getElementById("mdesc").textContent=selected.description;document.getElementById("mprice").textContent=money(selected.price);document.getElementById("productModal").classList.add("show")}
+function closeProduct(){document.getElementById("productModal").classList.remove("show")}
+function buySelected(){if(selected)buy(selected)}
+
+function openSell(){document.getElementById("sellModal").classList.add("show")}
+function closeSell(){document.getElementById("sellModal").classList.remove("show")}
+function sell(e){e.preventDefault();let name=document.getElementById("sn").value,cat=document.getElementById("sc").value,price=Number(document.getElementById("sp").value),image=document.getElementById("si").value.trim(),desc=document.getElementById("sd").value; if(!image){toast("Please provide a specific product image URL");return} products.unshift({id:Date.now(),category:cat,name,price,image,description:desc||"Seller product",rating:"5.0"});e.target.reset();closeSell();document.getElementById("statP").textContent=products.length;render();toast("Product published")}
+document.getElementById("statP").textContent=products.length;document.getElementById("statC").textContent=cats.length;render();updateCart();
+</script>
+</body>
+</html>
