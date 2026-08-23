@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CHINOTECH1 Marketplace — Women's 400 Product Generator</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f3f6fb;
+  color:#172033;
+}
+header{
+  background:#1264d8;
+  color:white;
+  padding:24px;
+  text-align:center;
+}
+.container{
+  max-width:1100px;
+  margin:25px auto;
+  padding:20px;
+}
+.card{
+  background:white;
+  padding:25px;
+  border-radius:18px;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+button{
+  border:0;
+  border-radius:10px;
+  padding:13px 18px;
+  margin:5px;
+  cursor:pointer;
+  font-weight:bold;
+}
+.primary{background:#1264d8;color:white}
+.green{background:#159447;color:white}
+.dark{background:#172033;color:white}
+input,select{
+  width:100%;
+  padding:12px;
+  margin:6px 0 15px;
+  border:1px solid #ccd4e0;
+  border-radius:8px;
+}
+#status{
+  margin-top:15px;
+  font-weight:bold;
+}
+.preview{
+  overflow:auto;
+  margin-top:20px;
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:1000px;
+}
+th,td{
+  border:1px solid #ddd;
+  padding:8px;
+  text-align:left;
+  font-size:13px;
+}
+th{
+  background:#1264d8;
+  color:white;
+}
+img{
+  width:60px;
+  height:60px;
+  object-fit:cover;
+  border-radius:8px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>CHINOTECH1 MARKETPLACE</h1>
+  <p>400 Women's Fashion Product Upload Generator</p>
+</header>
+
+<div class="container">
+<div class="card">
+
+<h2>Generate Marketplace Products</h2>
+
+<label>Marketplace Name</label>
+<input id="marketplace" value="CHINOTECH1 Marketplace">
+
+<label>Brand Name</label>
+<input id="brand" value="CHINOTECH1">
+
+<button class="primary" onclick="generateProducts()">
+Generate 400 Products
+</button>
+
+<button class="green" onclick="downloadCSV()">
+Download CSV
+</button>
+
+<button class="dark" onclick="downloadExcelCompatible()">
+Download Excel CSV
+</button>
+
+<div id="status"></div>
+
+<div class="preview">
+<table id="productTable">
+<thead>
+<tr>
+<th>Image</th>
+<th>SKU</th>
+<th>Product Name</th>
+<th>Category</th>
+<th>Brand</th>
+<th>Color</th>
+<th>Size</th>
+<th>Price</th>
+<th>Stock</th>
+<th>Description</th>
+<th>Image URL</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+
+</div>
+</div>
+
+<script>
+
+const categories = {
+
+"Women's Clothing":[
+"Dress",
+"Blouse",
+"T-Shirt",
+"Skirt",
+"Jeans",
+"Trousers",
+"Leggings",
+"Jumpsuit",
+"Hoodie",
+"Cardigan",
+"Crop Top",
+"Long Sleeve Top",
+"Fashion Top",
+"Bodycon Dress",
+"Maxi Dress",
+"Mini Dress",
+"Denim Jacket",
+"Fashion Jacket"
+],
+
+"Women's Shoes":[
+"Sneakers",
+"High Heels",
+"Flat Shoes",
+"Sandals",
+"Slides",
+"Loafers",
+"Canvas Shoes",
+"Boots",
+"Fashion Slippers",
+"Wedge Shoes",
+"Running Shoes"
+],
+
+"Women's Accessories":[
+"Necklace",
+"Earrings",
+"Bracelet",
+"Ring",
+"Sunglasses",
+"Fashion Watch",
+"Hair Clip",
+"Headband",
+"Anklet",
+"Brooch",
+"Jewelry Set"
+],
+
+"Nails & Beauty Accessories":[
+"Press-On Nails",
+"Nail Art Set",
+"Nail File Set",
+"Nail Sticker Set",
+"Nail Brush",
+"Makeup Bag",
+"Nail Decoration Kit",
+"False Nail Tips",
+"Nail Tool Set"
+],
+
+"Women's Hosiery & Basics":[
+"Tights",
+"Stockings",
+"Socks",
+"Ankle Socks",
+"Knee-High Socks",
+"Seamless Camisole",
+"Fashion Socks",
+"Leg Warmers"
+],
+
+"Women's Sleepwear":[
+"Pajama Set",
+"Nightdress",
+"Robe",
+"Lounge Set",
+"Sleep Shorts",
+"Sleep T-Shirt",
+"Sleep Pants"
+],
+
+"Women's Bags":[
+"Handbag",
+"Shoulder Bag",
+"Crossbody Bag",
+"Tote Bag",
+"Mini Bag",
+"Clutch Bag",
+"Backpack",
+"Travel Bag",
+"Wallet"
+],
+
+"Women's Hair Accessories":[
+"Scrunchie Set",
+"Hair Bow",
+"Claw Clips",
+"Hair Pins",
+"Hair Band",
+"Head Wrap",
+"Hair Tie Set",
+"Hair Comb"
+]
+
+};
+
+const colors=[
+"Black",
+"White",
+"Pink",
+"Blue",
+"Red",
+"Purple",
+"Green",
+"Beige",
+"Brown",
+"Grey",
+"Gold",
+"Silver"
+];
+
+const styles=[
+"Classic",
+"Elegant",
+"Trendy",
+"Casual",
+"Modern",
+"Chic",
+"Minimalist",
+"Fashionable",
+"Premium",
+"Everyday"
+];
+
+const sizes=[
+"One Size",
+"S",
+"M",
+"L",
+"XL",
+"XXL"
+];
+
+let products=[];
+
+function generateProducts(){
+
+products=[];
+
+let number=1;
+
+while(products.length<400){
+
+for(const category in categories){
+
+for(const item of categories[category]){
+
+if(products.length>=400) break;
+
+const color=
+colors[(number-1)%colors.length];
+
+const style=
+styles[(number-1)%styles.length];
+
+const size=
+sizes[(number-1)%sizes.length];
+
+const price=
+3000+((number*537)%17000);
+
+const sku=
+"CH1-WOMEN-"+String(number).padStart(4,"0");
+
+const name=
+"CHINOTECH1 Women's "+
+style+" "+
+color+" "+item;
+
+const image=
+"https://placehold.co/800x800/png?text="+
+encodeURIComponent(item);
+
+const description=
+"Beautiful "+style.toLowerCase()+
+" women's "+item.toLowerCase()+
+" in "+color.toLowerCase()+
+". Suitable for everyday fashion, outings, "
++"special occasions and personal style.";
+
+products.push({
+
+SKU:sku,
+
+Product_Name:name,
+
+Category:category,
+
+Brand:
+document.getElementById("brand").value,
+
+Color:color,
+
+Style:style,
+
+Size:size,
+
+Price_NGN:price,
+
+Stock:20+(number%50),
+
+Condition:"New",
+
+Description:description,
+
+Product_Image_URL:image
+
+});
+
+number++;
+
+}
+
+}
+
+}
+
+displayProducts();
+
+document.getElementById("status").innerHTML=
+"✅ "+products.length+
+" women's products generated successfully.";
+
+}
+
+function displayProducts(){
+
+const tbody=
+document.querySelector("#productTable tbody");
+
+tbody.innerHTML="";
+
+products.slice(0,100).forEach(p=>{
+
+const tr=document.createElement("tr");
+
+tr.innerHTML=`
+
+<td>
+<img src="${p.Product_Image_URL}"
+onerror="this.src='https://placehold.co/800x800?text=Product'">
+</td>
+
+<td>${p.SKU}</td>
+
+<td>${p.Product_Name}</td>
+
+<td>${p.Category}</td>
+
+<td>${p.Brand}</td>
+
+<td>${p.Color}</td>
+
+<td>${p.Size}</td>
+
+<td>₦${p.Price_NGN.toLocaleString()}</td>
+
+<td>${p.Stock}</td>
+
+<td>${p.Description}</td>
+
+<td>${p.Product_Image_URL}</td>
+
+`;
+
+tbody.appendChild(tr);
+
+});
+
+}
+
+function csvEscape(value){
+
+value=String(value);
+
+if(
+value.includes(",") ||
+value.includes('"') ||
+value.includes("\n")
+){
+return '"'+value.replace(/"/g,'""')+'"';
+}
+
+return value;
+
+}
+
+function downloadCSV(){
+
+if(products.length===0){
+generateProducts();
+}
+
+const headers=[
+"SKU",
+"Product Name",
+"Category",
+"Brand",
+"Color",
+"Style",
+"Size",
+"Price (NGN)",
+"Stock",
+"Condition",
+"Description",
+"Product Image URL"
+];
+
+let csv=headers.join(",")+"\n";
+
+products.forEach(p=>{
+
+const row=[
+p.SKU,
+p.Product_Name,
+p.Category,
+p.Brand,
+p.Color,
+p.Style,
+p.Size,
+p.Price_NGN,
+p.Stock,
+p.Condition,
+p.Description,
+p.Product_Image_URL
+];
+
+csv+=row.map(csvEscape).join(",")+"\n";
+
+});
+
+const blob=
+new Blob(["\ufeff"+csv],{
+type:"text/csv;charset=utf-8;"
+});
+
+const url=
+URL.createObjectURL(blob);
+
+const a=
+document.createElement("a");
+
+a.href=url;
+
+a.download=
+"CHINOTECH1_400_WOMENS_PRODUCTS.csv";
+
+a.click();
+
+URL.revokeObjectURL(url);
+
+}
+
+function downloadExcelCompatible(){
+
+if(products.length===0){
+generateProducts();
+}
+
+downloadCSV();
+
+}
+
+generateProducts();
+
+</script>
+
+</body>
+</html>
