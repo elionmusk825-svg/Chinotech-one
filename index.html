@@ -1,0 +1,2704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#111827">
+<meta name="description" content="CHINOTECH ONE Marketplace">
+<title>CHINOTECH ONE MARKETPLACE</title>
+
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f3f4f6;
+  color:#111827
+}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:#111827;
+  color:#fff;
+  box-shadow:0 2px 12px #0005
+}
+
+.top{
+  max-width:1500px;
+  margin:auto;
+  padding:12px;
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap
+}
+
+.logo{
+  font-weight:900;
+  font-size:20px;
+  min-width:210px
+}
+
+.logo b{
+  background:#facc15;
+  color:#111827;
+  padding:8px;
+  border-radius:9px;
+  margin-right:7px
+}
+
+.search{
+  flex:1;
+  display:flex;
+  min-width:230px
+}
+
+.search input{
+  flex:1;
+  padding:13px;
+  border:0;
+  outline:0;
+  border-radius:8px 0 0 8px
+}
+
+.search button{
+  border:0;
+  background:#facc15;
+  padding:0 18px;
+  font-weight:900;
+  border-radius:0 8px 8px 0
+}
+
+.head{
+  display:flex;
+  gap:6px
+}
+
+.head button{
+  border:1px solid #374151;
+  background:#1f2937;
+  color:#fff;
+  padding:10px;
+  border-radius:7px
+}
+
+.nav{
+  overflow:auto;
+  background:#1f2937;
+  white-space:nowrap
+}
+
+.navin{
+  max-width:1500px;
+  margin:auto;
+  display:flex;
+  gap:4px;
+  padding:5px
+}
+
+.nav button{
+  border:0;
+  background:none;
+  color:#fff;
+  font-size:12px;
+  padding:10px;
+  border-radius:6px
+}
+
+.nav button:hover{
+  background:#374151
+}
+
+.hero{
+  max-width:1500px;
+  margin:18px auto;
+  padding:0 12px
+}
+
+.heroBox{
+  min-height:340px;
+  border-radius:18px;
+  padding:35px;
+  color:#fff;
+  background:
+    linear-gradient(90deg,#111827ee,#11182755),
+    url("https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1600&q=85")
+    center/cover
+}
+
+.hero h1{
+  font-size:clamp(32px,5vw,56px);
+  max-width:700px;
+  margin:0 0 12px
+}
+
+.hero p{
+  max-width:650px;
+  line-height:1.6
+}
+
+.btn{
+  border:0;
+  padding:12px 18px;
+  border-radius:8px;
+  font-weight:800;
+  margin:3px
+}
+
+.yellow{
+  background:#facc15;
+  color:#111827
+}
+
+.dark{
+  background:#111827;
+  color:#fff
+}
+
+.section{
+  max-width:1500px;
+  margin:22px auto;
+  padding:0 12px
+}
+
+.section h2{
+  margin:0 0 14px
+}
+
+.cats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+  gap:9px
+}
+
+.cat{
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:10px;
+  padding:13px;
+  text-align:center;
+  cursor:pointer;
+  transition:.2s
+}
+
+.cat:hover{
+  box-shadow:0 5px 15px #0002;
+  transform:translateY(-2px)
+}
+
+.cat span{
+  font-size:28px;
+  display:block;
+  margin-bottom:6px
+}
+
+.filters{
+  background:#fff;
+  padding:12px;
+  border-radius:10px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-bottom:15px
+}
+
+.filters input,
+.filters select{
+  padding:10px;
+  border:1px solid #ccc;
+  border-radius:7px;
+  outline:none
+}
+
+.filters input{
+  flex:1;
+  min-width:200px
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:13px
+}
+
+.card{
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:10px;
+  overflow:hidden;
+  transition:.2s
+}
+
+.card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 20px #0001
+}
+
+.photo{
+  height:200px;
+  position:relative;
+  background:#e5e7eb;
+  overflow:hidden
+}
+
+.photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block
+}
+
+.badge{
+  position:absolute;
+  top:8px;
+  left:8px;
+  background:#ef4444;
+  color:#fff;
+  font-size:10px;
+  font-weight:bold;
+  padding:5px;
+  border-radius:5px
+}
+
+.body{
+  padding:11px
+}
+
+.small{
+  font-size:11px;
+  color:#6b7280
+}
+
+.name{
+  font-weight:800;
+  min-height:35px;
+  margin-top:4px
+}
+
+.stars{
+  color:#f59e0b;
+  font-size:12px;
+  margin:5px 0
+}
+
+.price{
+  font-size:18px;
+  font-weight:900
+}
+
+.actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:6px;
+  margin-top:9px
+}
+
+.actions button{
+  border:0;
+  padding:9px;
+  border-radius:6px;
+  font-weight:bold;
+  font-size:11px
+}
+
+.cart{
+  background:#facc15
+}
+
+.buy{
+  background:#111827;
+  color:#fff
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px
+}
+
+.stat{
+  background:#fff;
+  padding:17px;
+  border-radius:10px;
+  border:1px solid #ddd
+}
+
+.stat b{
+  font-size:24px;
+  display:block;
+  margin-top:5px
+}
+
+.infoGrid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px
+}
+
+.infoCard{
+  background:#fff;
+  padding:20px;
+  border-radius:12px;
+  border:1px solid #ddd
+}
+
+footer{
+  margin-top:40px;
+  background:#111827;
+  color:#fff;
+  padding:35px 15px
+}
+
+.foot{
+  max-width:1500px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:25px
+}
+
+.foot h3{
+  color:#facc15
+}
+
+.foot p{
+  color:#d1d5db;
+  line-height:1.7
+}
+
+.overlay,
+.modal{
+  position:fixed;
+  inset:0;
+  background:#0009;
+  z-index:200;
+  display:none
+}
+
+.overlay.show{
+  display:block
+}
+
+.modal.show{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:15px
+}
+
+.drawer{
+  margin-left:auto;
+  background:#fff;
+  height:100%;
+  width:min(450px,95%);
+  padding:18px;
+  overflow:auto
+}
+
+.box{
+  background:#fff;
+  width:min(650px,100%);
+  max-height:92vh;
+  overflow:auto;
+  border-radius:12px;
+  padding:20px
+}
+
+.drawerhead{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px
+}
+
+.close{
+  border:0;
+  background:#ef4444;
+  color:#fff;
+  padding:8px;
+  border-radius:5px
+}
+
+.item{
+  display:flex;
+  gap:10px;
+  padding:12px 0;
+  border-bottom:1px solid #ddd
+}
+
+.item img{
+  width:65px;
+  height:65px;
+  object-fit:cover;
+  border-radius:6px
+}
+
+.qty button{
+  border:1px solid #ccc;
+  background:#fff;
+  margin:3px;
+  padding:3px 8px
+}
+
+.pay{
+  width:100%;
+  padding:14px;
+  border:0;
+  background:#00c853;
+  color:#fff;
+  font-weight:900;
+  border-radius:7px;
+  margin-top:15px
+}
+
+.box input,
+.box select,
+.box textarea{
+  width:100%;
+  padding:11px;
+  margin:5px 0 12px;
+  border:1px solid #ccc;
+  border-radius:6px
+}
+
+.detailimg{
+  width:100%;
+  max-height:400px;
+  object-fit:cover;
+  border-radius:8px;
+  background:#eee
+}
+
+.toast{
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translate(-50%,100px);
+  background:#111827;
+  color:#fff;
+  padding:12px 18px;
+  border-radius:7px;
+  z-index:500;
+  transition:.25s
+}
+
+.toast.show{
+  transform:translate(-50%,0)
+}
+
+.empty{
+  grid-column:1/-1;
+  background:#fff;
+  padding:40px;
+  text-align:center;
+  border-radius:10px
+}
+
+.loading{
+  grid-column:1/-1;
+  background:#fff;
+  padding:40px;
+  text-align:center;
+  border-radius:10px
+}
+
+.pagination{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  margin:25px 0;
+  flex-wrap:wrap
+}
+
+.pagination button{
+  border:0;
+  padding:10px 14px;
+  border-radius:7px;
+  background:#111827;
+  color:#fff
+}
+
+.pagination button.active{
+  background:#facc15;
+  color:#111827;
+  font-weight:bold
+}
+
+.pageInfo{
+  font-weight:bold;
+  padding:8px
+}
+
+@media(max-width:1100px){
+  .products{
+    grid-template-columns:repeat(4,1fr)
+  }
+}
+
+@media(max-width:800px){
+  .products{
+    grid-template-columns:repeat(3,1fr)
+  }
+
+  .stats{
+    grid-template-columns:repeat(2,1fr)
+  }
+
+  .foot{
+    grid-template-columns:repeat(2,1fr)
+  }
+
+  .infoGrid{
+    grid-template-columns:1fr
+  }
+}
+
+@media(max-width:520px){
+  .products{
+    grid-template-columns:repeat(2,1fr)
+  }
+
+  .photo{
+    height:150px
+  }
+
+  .foot{
+    grid-template-columns:1fr
+  }
+
+  .logo{
+    width:100%
+  }
+
+  .heroBox{
+    padding:25px
+  }
+
+  .actions{
+    grid-template-columns:1fr
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="top">
+
+<div class="logo">
+<b>C1</b> CHINOTECH ONE
+</div>
+
+<div class="search">
+
+<input
+id="q"
+placeholder="Search products..."
+oninput="syncSearch(this.value)"
+onkeydown="searchEnter(event)"
+>
+
+<button onclick="searchNow()">
+🔍 SEARCH
+</button>
+
+</div>
+
+<div class="head">
+
+<button onclick="openCart()">
+🛒 <span id="count">0</span>
+</button>
+
+<button onclick="openSell()">
+SELL
+</button>
+
+</div>
+
+</div>
+
+<div class="nav">
+<div class="navin" id="nav"></div>
+</div>
+
+</header>
+
+
+<section class="hero">
+
+<div class="heroBox">
+
+<h1>Everything You Need in One Marketplace</h1>
+
+<p>
+Shop phones, laptops, electronics, fashion, beauty,
+home appliances, gadgets, accessories and more.
+</p>
+
+<button
+class="btn yellow"
+onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+SHOP NOW
+</button>
+
+<button class="btn dark" onclick="openSell()">
+SELL YOUR PRODUCT
+</button>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<h2>Categories</h2>
+
+<div class="cats" id="cats"></div>
+
+</section>
+
+
+<section class="section">
+
+<h2>Marketplace Overview</h2>
+
+<div class="stats">
+
+<div class="stat">
+Products
+<b id="totalProducts">800</b>
+</div>
+
+<div class="stat">
+Categories
+<b id="totalCats">0</b>
+</div>
+
+<div class="stat">
+Cart Items
+<b id="totalCart">0</b>
+</div>
+
+<div class="stat">
+Maximum Price
+<b>₦300K</b>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<div class="infoGrid">
+
+<div class="infoCard">
+<h3>🚚 Easy Shopping</h3>
+<p>Browse products and add them to your shopping cart.</p>
+</div>
+
+<div class="infoCard">
+<h3>💳 Paystack Checkout</h3>
+<p>Continue to payment using your Paystack checkout.</p>
+</div>
+
+<div class="infoCard">
+<h3>🔥 Affordable Deals</h3>
+<p>Marketplace products are displayed at or below ₦300,000.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section" id="products">
+
+<h2>All Products — <span id="headingCount">800</span> Items</h2>
+
+<div class="filters">
+
+<input
+id="q2"
+placeholder="Search products..."
+oninput="syncSearch(this.value)"
+onkeydown="searchEnter(event)"
+>
+
+<button
+class="btn yellow"
+onclick="searchNow()">
+🔍 SEARCH
+</button>
+
+<select id="filter" onchange="render()">
+<option value="all">All Categories</option>
+</select>
+
+<select id="sort" onchange="render()">
+<option value="rec">Recommended</option>
+<option value="low">Price: Low to High</option>
+<option value="high">Price: High to Low</option>
+<option value="az">Name A-Z</option>
+</select>
+
+</div>
+
+<div class="products" id="grid"></div>
+
+<div class="pagination" id="pagination"></div>
+
+</section>
+
+
+<div class="overlay" id="cartOverlay">
+
+<div class="drawer">
+
+<div class="drawerhead">
+<h2>Shopping Cart</h2>
+<button class="close" onclick="closeCart()">×</button>
+</div>
+
+<div id="cartItems"></div>
+
+<h2>
+Total: ₦<span id="total">0</span>
+</h2>
+
+<button class="pay" onclick="checkout()">
+💳 PAY WITH PAYSTACK
+</button>
+
+</div>
+
+</div>
+
+
+<div class="modal" id="detailModal">
+
+<div class="box">
+
+<div class="drawerhead">
+
+<h2 id="dname"></h2>
+
+<button class="close" onclick="closeDetail()">×</button>
+
+</div>
+
+<img id="dimg" class="detailimg">
+
+<p class="small" id="dcat"></p>
+
+<p id="ddesc"></p>
+
+<h2>₦<span id="dprice"></span></h2>
+
+<button class="btn yellow" onclick="detailCart()">
+🛒 ADD TO CART
+</button>
+
+<button class="btn dark" onclick="buySelected()">
+💳 BUY NOW
+</button>
+
+</div>
+
+</div>
+
+
+<div class="modal" id="sellModal">
+
+<div class="box">
+
+<div class="drawerhead">
+
+<h2>Sell on CHINOTECH ONE</h2>
+
+<button class="close" onclick="closeSell()">×</button>
+
+</div>
+
+<form id="sellForm" onsubmit="sell(event)">
+
+<label>Product name</label>
+<input id="sn" required>
+
+<label>Category</label>
+<select id="sc" required></select>
+
+<label>Price ₦</label>
+<input id="sp" type="number" min="1" max="300000" required>
+
+<label>Product image URL</label>
+<input id="si" placeholder="Optional">
+
+<label>Description</label>
+<textarea id="sd"></textarea>
+
+<button class="btn yellow" type="submit">
+PUBLISH PRODUCT
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+
+<div class="toast" id="toast"></div>
+
+
+<footer>
+
+<div class="foot">
+
+<div>
+<h3>CHINOTECH ONE</h3>
+<p>
+Online marketplace for electronics,
+fashion, gadgets, beauty, home products
+and accessories.
+</p>
+</div>
+
+<div>
+<h3>Shop</h3>
+<p>
+Phones<br>
+Laptops<br>
+Fashion<br>
+Beauty<br>
+Electronics<br>
+Home
+</p>
+</div>
+
+<div>
+<h3>Services</h3>
+<p>
+Buy products<br>
+Sell products<br>
+Shopping cart<br>
+Product search<br>
+Checkout
+</p>
+</div>
+
+<div>
+<h3>Payment</h3>
+<p>
+Secure checkout through Paystack.
+</p>
+</div>
+
+</div>
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+PAYSTACK
+===================================================== */
+
+const PAYSTACK_LINK =
+"https://paystack.shop/pay/kkof1e1670";
+
+
+/* =====================================================
+CATEGORIES
+===================================================== */
+
+const categoryData = {
+
+Phones:{
+icon:"📱",
+items:[
+"iPhone 13","iPhone 12","iPhone 11","iPhone 14","iPhone 15",
+"Samsung Galaxy A15","Samsung Galaxy A25","Samsung Galaxy S23",
+"Samsung Galaxy S24","Tecno Spark","Tecno Camon","Infinix Hot",
+"Infinix Note","Google Pixel","OnePlus Phone"
+]},
+
+Laptops:{
+icon:"💻",
+items:[
+"HP Laptop","Dell Laptop","Lenovo Laptop","ASUS Laptop",
+"Acer Laptop","MacBook Air","MacBook Pro","Gaming Laptop",
+"Business Laptop"
+]},
+
+Televisions:{
+icon:"📺",
+items:[
+"Samsung Smart TV","LG Smart TV","Hisense TV","TCL Smart TV",
+"Sony TV","LED Television"
+]},
+
+Speakers:{
+icon:"🔊",
+items:[
+"Bluetooth Speaker","Portable Speaker","Party Speaker",
+"Wireless Speaker","Home Theater Speaker"
+]},
+
+Headphones:{
+icon:"🎧",
+items:[
+"Wireless Headphones","Gaming Headset",
+"Noise Cancelling Headphones","Bluetooth Headphones"
+]},
+
+Earbuds:{
+icon:"🎧",
+items:[
+"Wireless Earbuds","Bluetooth Earbuds",
+"Noise Cancelling Earbuds","Sports Earbuds"
+]},
+
+"Smart Watches":{
+icon:"⌚",
+items:[
+"Smart Watch","Fitness Smart Watch",
+"Sports Smart Watch","Bluetooth Smart Watch"
+]},
+
+Watches:{
+icon:"⌚",
+items:[
+"Men Wrist Watch","Women Wrist Watch",
+"Digital Watch","Classic Wrist Watch"
+]},
+
+Shoes:{
+icon:"👟",
+items:[
+"Sneakers","Running Shoes","Casual Shoes",
+"Fashion Shoes","Sports Shoes"
+]},
+
+Boots:{
+icon:"🥾",
+items:[
+"Men Boots","Women Boots","Work Boots",
+"Fashion Boots","Safety Boots"
+]},
+
+Bags:{
+icon:"👜",
+items:[
+"Travel Backpack","School Backpack","Handbag",
+"Laptop Bag","Travel Bag","Crossbody Bag"
+]},
+
+"Men Clothes":{
+icon:"👔",
+items:[
+"Men Shirt","Men T-Shirt","Men Jeans",
+"Men Trousers","Men Jacket","Men Shorts"
+]},
+
+"Women Clothes":{
+icon:"👗",
+items:[
+"Women Dress","Women Top","Women Skirt",
+"Women Jeans","Women Jacket","Fashion Dress"
+]},
+
+"Kids Clothes":{
+icon:"🧒",
+items:[
+"Kids Shirt","Kids Dress","Kids Shoes",
+"Kids Trousers","Kids Jacket"
+]},
+
+Beauty:{
+icon:"💄",
+items:[
+"Beauty Set","Face Cream","Body Lotion",
+"Perfume","Skin Care Set"
+]},
+
+Makeup:{
+icon:"💄",
+items:[
+"Makeup Set","Foundation","Lipstick",
+"Eye Makeup","Makeup Brush Set"
+]},
+
+Jewelry:{
+icon:"💎",
+items:[
+"Jewelry Set","Bracelet","Ring",
+"Fashion Jewelry","Gold Style Necklace"
+]},
+
+Necklaces:{
+icon:"📿",
+items:[
+"Fashion Necklace","Pendant Necklace",
+"Chain Necklace","Beaded Necklace"
+]},
+
+Earrings:{
+icon:"💎",
+items:[
+"Stud Earrings","Hoop Earrings",
+"Fashion Earrings","Crystal Earrings"
+]},
+
+Eyeglasses:{
+icon:"👓",
+items:[
+"Fashion Glasses","Reading Glasses",
+"Sun Glasses","Clear Frame Glasses"
+]},
+
+"Power Banks":{
+icon:"🔋",
+items:[
+"Power Bank 10000mAh","Power Bank 20000mAh",
+"Fast Charge Power Bank","Mini Power Bank"
+]},
+
+Chargers:{
+icon:"🔌",
+items:[
+"USB Charger","Fast Charger","Type-C Charger",
+"iPhone Charger","Multi-Port Charger"
+]},
+
+Cameras:{
+icon:"📷",
+items:[
+"Digital Camera","DSLR Camera","Mirrorless Camera",
+"Action Camera","Security Camera"
+]},
+
+Gaming:{
+icon:"🎮",
+items:[
+"Gaming Controller","Gaming Keyboard","Gaming Mouse",
+"Game Console","Gaming Headset"
+]},
+
+Tablets:{
+icon:"📱",
+items:[
+"Android Tablet","Samsung Tablet","Lenovo Tablet",
+"iPad","Kids Tablet"
+]},
+
+Drones:{
+icon:"🚁",
+items:[
+"Camera Drone","Mini Drone","Professional Drone",
+"HD Drone","Foldable Drone"
+]},
+
+Refrigerators:{
+icon:"🧊",
+items:[
+"Home Refrigerator","Mini Refrigerator",
+"Double Door Refrigerator","Single Door Refrigerator"
+]},
+
+Fans:{
+icon:"🌀",
+items:[
+"Standing Fan","Table Fan","Ceiling Fan",
+"Rechargeable Fan","Portable Fan"
+]},
+
+Lights:{
+icon:"💡",
+items:[
+"LED Light","Smart Light","Rechargeable Light",
+"Outdoor Light","Security Light"
+]},
+
+Kitchen:{
+icon:"🍳",
+items:[
+"Blender","Electric Kettle","Air Fryer",
+"Rice Cooker","Kitchen Appliance Set"
+]},
+
+"Home Appliances":{
+icon:"🏠",
+items:[
+"Microwave","Washing Machine","Electric Iron",
+"Vacuum Cleaner","Air Conditioner"
+]},
+
+Sports:{
+icon:"⚽",
+items:[
+"Football","Basketball","Tennis Racket",
+"Sports Shoes","Gym Equipment"
+]},
+
+Tools:{
+icon:"🔧",
+items:[
+"Power Drill","Tool Set","Screwdriver Set",
+"Welding Tool","Hand Tools"
+]},
+
+Bicycles:{
+icon:"🚲",
+items:[
+"Mountain Bicycle","Road Bicycle",
+"Kids Bicycle","City Bicycle"
+]},
+
+Motorcycles:{
+icon:"🏍️",
+items:[
+"Motorcycle","Scooter","Sport Bike",
+"Commuter Motorcycle"
+]},
+
+Cars:{
+icon:"🚗",
+items:[
+"Toyota Car","Honda Car","Lexus Car",
+"Mercedes Car","Hyundai Car"
+]},
+
+Supermarket:{
+icon:"🛒",
+items:[
+"Food Items","Household Items",
+"Cleaning Products","Storage Items"
+]},
+
+Underwear:{
+icon:"🩲",
+items:[
+"Men Underwear","Women Underwear","Kids Underwear"
+]},
+
+"Hair Accessories":{
+icon:"🎀",
+items:[
+"Hair Clips","Hair Band","Hair Brush",
+"Hair Accessories Set"
+]},
+
+Wigs:{
+icon:"💇",
+items:[
+"Human Hair Wig","Fashion Wig",
+"Curly Wig","Straight Wig"
+]},
+
+"Weave-on":{
+icon:"💇",
+items:[
+"Hair Weave","Straight Weave",
+"Curly Weave","Body Wave"
+]}
+
+};
+
+
+/* =====================================================
+PRICES
+===================================================== */
+
+const basePrices = {
+
+Phones:120000,
+Laptops:180000,
+Televisions:120000,
+Speakers:25000,
+Headphones:18000,
+Earbuds:12000,
+"Smart Watches":18000,
+Watches:15000,
+Shoes:20000,
+Boots:25000,
+Bags:18000,
+"Men Clothes":12000,
+"Women Clothes":15000,
+"Kids Clothes":8000,
+Beauty:10000,
+Makeup:8000,
+Jewelry:12000,
+Necklaces:10000,
+Earrings:7000,
+Eyeglasses:8000,
+"Power Banks":10000,
+Chargers:5000,
+Cameras:100000,
+Gaming:20000,
+Tablets:90000,
+Drones:100000,
+Refrigerators:180000,
+Fans:25000,
+Lights:5000,
+Kitchen:12000,
+"Home Appliances":30000,
+Sports:10000,
+Tools:15000,
+Bicycles:50000,
+Motorcycles:250000,
+Cars:300000,
+Supermarket:5000,
+Underwear:5000,
+"Hair Accessories":3000,
+Wigs:30000,
+"Weave-on":25000
+
+};
+
+
+/* =====================================================
+IMAGE SYSTEM
+===================================================== */
+
+const imageSources = {
+
+Phones:[
+"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&w=900&q=80"
+],
+
+Laptops:[
+"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=900&q=80"
+],
+
+Televisions:[
+"https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1593784991095-a205069470b6?auto=format&fit=crop&w=900&q=80"
+],
+
+Speakers:[
+"https://images.unsplash.com/photo-1589003077984-894e133dabab?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=900&q=80"
+],
+
+Headphones:[
+"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=900&q=80"
+],
+
+Earbuds:[
+"https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=900&q=80"
+],
+
+"Smart Watches":[
+"https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=80"
+],
+
+Watches:[
+"https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=900&q=80"
+],
+
+Shoes:[
+"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1495555961986-6d4c1ecb7be3?auto=format&fit=crop&w=900&q=80"
+],
+
+Boots:[
+"https://images.unsplash.com/photo-1520639888713-7851133b1ed0?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1608256246200-53e635b5b65f?auto=format&fit=crop&w=900&q=80"
+],
+
+Bags:[
+"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=900&q=80"
+],
+
+"Men Clothes":[
+"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=900&q=80"
+],
+
+"Women Clothes":[
+"https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80"
+],
+
+"Kids Clothes":[
+"https://images.unsplash.com/photo-1503919545889-aef636e10ad4?auto=format&fit=crop&w=900&q=80"
+],
+
+Beauty:[
+"https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?auto=format&fit=crop&w=900&q=80"
+],
+
+Makeup:[
+"https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=900&q=80"
+],
+
+Jewelry:[
+"https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=900&q=80"
+],
+
+Necklaces:[
+"https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=80"
+],
+
+Earrings:[
+"https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?auto=format&fit=crop&w=900&q=80"
+],
+
+Eyeglasses:[
+"https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=900&q=80"
+],
+
+"Power Banks":[
+"https://images.unsplash.com/photo-1609592424904-6c0d2a4a4f85?auto=format&fit=crop&w=900&q=80"
+],
+
+Chargers:[
+"https://images.unsplash.com/photo-1625842268584-8f3296236761?auto=format&fit=crop&w=900&q=80"
+],
+
+Cameras:[
+"https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=900&q=80"
+],
+
+Gaming:[
+"https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1605901309584-818e25960a8f?auto=format&fit=crop&w=900&q=80"
+],
+
+Tablets:[
+"https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=900&q=80"
+],
+
+Drones:[
+"https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=900&q=80"
+],
+
+Refrigerators:[
+"https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?auto=format&fit=crop&w=900&q=80"
+],
+
+Fans:[
+"https://images.unsplash.com/photo-1618941716939-553df3c6c278?auto=format&fit=crop&w=900&q=80"
+],
+
+Lights:[
+"https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=900&q=80"
+],
+
+Kitchen:[
+"https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1556909212-d5b604d0c90d?auto=format&fit=crop&w=900&q=80"
+],
+
+"Home Appliances":[
+"https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=900&q=80"
+],
+
+Sports:[
+"https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=80"
+],
+
+Tools:[
+"https://images.unsplash.com/photo-1581147036324-c17ac41a0f1a?auto=format&fit=crop&w=900&q=80"
+],
+
+Bicycles:[
+"https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=900&q=80"
+],
+
+Motorcycles:[
+"https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=900&q=80"
+],
+
+Cars:[
+"https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80"
+],
+
+Supermarket:[
+"https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=80"
+],
+
+Underwear:[
+"https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=900&q=80"
+],
+
+"Hair Accessories":[
+"https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=80"
+],
+
+Wigs:[
+"https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80"
+],
+
+"Weave-on":[
+"https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=80"
+]
+
+};
+
+
+/* =====================================================
+FALLBACK IMAGE
+===================================================== */
+
+function escapeSvgText(text){
+
+return String(text)
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;");
+
+}
+
+
+function fallbackImage(name,category){
+
+const emoji =
+categoryData[category]?.icon || "🛍️";
+
+const svg = `
+<svg xmlns="http://www.w3.org/2000/svg"
+width="900" height="700" viewBox="0 0 900 700">
+<rect width="900" height="700" fill="#e5e7eb"/>
+<rect x="45" y="45" width="810" height="610"
+rx="35" fill="#facc15"/>
+<text x="450" y="290"
+font-size="120"
+text-anchor="middle">${emoji}</text>
+<text x="450" y="430"
+font-family="Arial"
+font-size="42"
+font-weight="bold"
+text-anchor="middle"
+fill="#111827">${escapeSvgText(name)}</text>
+<text x="450" y="490"
+font-family="Arial"
+font-size="28"
+text-anchor="middle"
+fill="#374151">CHINOTECH ONE</text>
+</svg>
+`;
+
+return "data:image/svg+xml;charset=UTF-8,"+
+encodeURIComponent(svg);
+
+}
+
+
+/* =====================================================
+GET PRODUCT IMAGE
+===================================================== */
+
+function productImage(name,category,index){
+
+const list =
+imageSources[category] ||
+[
+"https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=900&q=80"
+];
+
+return list[index % list.length];
+
+}
+
+
+/* =====================================================
+CREATE EXACTLY 800 PRODUCTS
+===================================================== */
+
+let products=[];
+let id=1;
+
+const categoryNames=Object.keys(categoryData);
+
+for(let round=0;round<100;round++){
+
+  for(let c=0;c<categoryNames.length;c++){
+
+    if(products.length>=800) break;
+
+    const category=categoryNames[c];
+    const data=categoryData[category];
+
+    const baseName =
+      data.items[round % data.items.length];
+
+    const variant =
+      round%4===0 ? "Premium" :
+      round%4===1 ? "New" :
+      round%4===2 ? "Classic" :
+      "Original";
+
+    let price =
+      (basePrices[category] || 10000) +
+      (round%10)*2500;
+
+    if(price>300000){
+      price=300000;
+    }
+
+    const product={
+      id:id,
+      name:baseName+" "+variant+" "+(round+1),
+      category:category,
+      price:price,
+      rating:3+(round%3),
+      badge:
+        round%5===0 ? "HOT" :
+        round%5===1 ? "NEW" :
+        round%5===2 ? "DEAL" :
+        "",
+      image:productImage(
+        baseName,
+        category,
+        id
+      ),
+      fallback:fallbackImage(
+        baseName,
+        category
+      ),
+      description:
+        "Quality "+baseName+
+        " available in the CHINOTECH ONE Marketplace."
+    };
+
+    products.push(product);
+    id++;
+
+  }
+
+}
+
+products=products.slice(0,800);
+
+
+/* =====================================================
+STATE
+===================================================== */
+
+let cart=[];
+let selectedProduct=null;
+let currentPage=1;
+const productsPerPage=40;
+
+
+/* =====================================================
+MONEY
+===================================================== */
+
+function money(value){
+
+return Number(value)
+.toLocaleString("en-NG");
+
+}
+
+
+/* =====================================================
+TOAST
+===================================================== */
+
+let toastTimer;
+
+function toast(message){
+
+const el=document.getElementById("toast");
+
+el.textContent=message;
+el.classList.add("show");
+
+clearTimeout(toastTimer);
+
+toastTimer=setTimeout(()=>{
+  el.classList.remove("show");
+},2500);
+
+}
+
+
+/* =====================================================
+INITIALIZE
+===================================================== */
+
+function init(){
+
+document.getElementById("totalProducts").textContent =
+products.length;
+
+document.getElementById("headingCount").textContent =
+products.length;
+
+document.getElementById("totalCats").textContent =
+categoryNames.length;
+
+buildNavigation();
+buildCategories();
+buildFilters();
+buildSellCategories();
+
+loadCart();
+
+render();
+
+}
+
+
+/* =====================================================
+NAVIGATION
+===================================================== */
+
+function buildNavigation(){
+
+const nav=document.getElementById("nav");
+
+nav.innerHTML="";
+
+const home=document.createElement("button");
+
+home.textContent="🏠 HOME";
+
+home.onclick=()=>{
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+};
+
+nav.appendChild(home);
+
+categoryNames.forEach(category=>{
+
+const button=document.createElement("button");
+
+button.textContent =
+(categoryData[category].icon || "🛍️")+" "+category;
+
+button.onclick=()=>{
+  chooseCategory(category);
+};
+
+nav.appendChild(button);
+
+});
+
+}
+
+
+/* =====================================================
+CATEGORY CARDS
+===================================================== */
+
+function buildCategories(){
+
+const cats=document.getElementById("cats");
+
+cats.innerHTML="";
+
+categoryNames.forEach(category=>{
+
+const div=document.createElement("div");
+
+div.className="cat";
+
+div.innerHTML=`
+<span>${categoryData[category].icon}</span>
+<strong>${category}</strong>
+`;
+
+div.onclick=()=>{
+  chooseCategory(category);
+};
+
+cats.appendChild(div);
+
+});
+
+}
+
+
+/* =====================================================
+FILTERS
+===================================================== */
+
+function buildFilters(){
+
+const filter=document.getElementById("filter");
+
+categoryNames.forEach(category=>{
+
+const option=document.createElement("option");
+
+option.value=category;
+option.textContent=category;
+
+filter.appendChild(option);
+
+});
+
+}
+
+
+function buildSellCategories(){
+
+const select=document.getElementById("sc");
+
+select.innerHTML="";
+
+categoryNames.forEach(category=>{
+
+const option=document.createElement("option");
+
+option.value=category;
+option.textContent=category;
+
+select.appendChild(option);
+
+});
+
+}
+
+
+/* =====================================================
+CATEGORY SELECT
+===================================================== */
+
+function chooseCategory(category){
+
+document.getElementById("filter").value=category;
+
+currentPage=1;
+
+render();
+
+document.getElementById("products")
+.scrollIntoView({
+  behavior:"smooth"
+});
+
+}
+
+
+/* =====================================================
+SEARCH
+===================================================== */
+
+function syncSearch(value){
+
+document.getElementById("q").value=value;
+document.getElementById("q2").value=value;
+
+}
+
+
+function searchNow(){
+
+const value=
+document.getElementById("q2").value.trim();
+
+syncSearch(value);
+
+currentPage=1;
+
+render();
+
+document.getElementById("products")
+.scrollIntoView({
+  behavior:"smooth"
+});
+
+}
+
+
+function searchEnter(event){
+
+if(event.key==="Enter"){
+  searchNow();
+}
+
+}
+
+
+/* =====================================================
+FILTER PRODUCTS
+===================================================== */
+
+function getFilteredProducts(){
+
+const query=
+document.getElementById("q2").value
+.trim()
+.toLowerCase();
+
+const category=
+document.getElementById("filter").value;
+
+const sort=
+document.getElementById("sort").value;
+
+let result=products.filter(product=>{
+
+const matchesQuery=
+!query ||
+product.name.toLowerCase().includes(query) ||
+product.category.toLowerCase().includes(query) ||
+product.description.toLowerCase().includes(query);
+
+const matchesCategory=
+category==="all" ||
+product.category===category;
+
+return matchesQuery && matchesCategory;
+
+});
+
+
+if(sort==="low"){
+
+result.sort((a,b)=>a.price-b.price);
+
+}
+
+if(sort==="high"){
+
+result.sort((a,b)=>b.price-a.price);
+
+}
+
+if(sort==="az"){
+
+result.sort((a,b)=>
+a.name.localeCompare(b.name)
+);
+
+}
+
+return result;
+
+}
+
+
+/* =====================================================
+RENDER
+===================================================== */
+
+function render(){
+
+const grid=document.getElementById("grid");
+
+grid.innerHTML=
+`<div class="loading">Loading products...</div>`;
+
+setTimeout(()=>{
+
+const result=getFilteredProducts();
+
+const totalPages=
+Math.max(
+1,
+Math.ceil(result.length/productsPerPage)
+);
+
+if(currentPage>totalPages){
+  currentPage=totalPages;
+}
+
+const start=
+(currentPage-1)*productsPerPage;
+
+const pageItems=
+result.slice(start,start+productsPerPage);
+
+grid.innerHTML="";
+
+if(!pageItems.length){
+
+grid.innerHTML=`
+<div class="empty">
+<h2>No products found</h2>
+<p>Try another product name or category.</p>
+<button class="btn yellow" onclick="clearSearch()">
+CLEAR SEARCH
+</button>
+</div>
+`;
+
+}else{
+
+pageItems.forEach(product=>{
+  grid.appendChild(createCard(product));
+});
+
+}
+
+renderPagination(totalPages);
+
+document.getElementById("headingCount").textContent =
+result.length;
+
+},80);
+
+}
+
+
+/* =====================================================
+PRODUCT CARD
+===================================================== */
+
+function createCard(product){
+
+const card=document.createElement("div");
+
+card.className="card";
+
+const stars="★".repeat(product.rating)+
+"☆".repeat(5-product.rating);
+
+card.innerHTML=`
+
+<div class="photo">
+
+<img
+src="${product.image}"
+alt="${escapeHtml(product.name)}"
+loading="lazy"
+>
+
+${product.badge
+? `<span class="badge">${product.badge}</span>`
+: ""}
+
+</div>
+
+<div class="body">
+
+<div class="small">
+${escapeHtml(product.category)}
+</div>
+
+<div class="name">
+${escapeHtml(product.name)}
+</div>
+
+<div class="stars">
+${stars}
+</div>
+
+<div class="price">
+₦${money(product.price)}
+</div>
+
+<div class="actions">
+
+<button class="cart">
+🛒 CART
+</button>
+
+<button class="buy">
+VIEW
+</button>
+
+</div>
+
+</div>
+`;
+
+const image=card.querySelector("img");
+
+image.onerror=()=>{
+
+if(image.src!==product.fallback){
+
+image.src=product.fallback;
+
+}
+
+};
+
+card.querySelector(".cart").onclick=()=>{
+  addToCart(product.id);
+};
+
+card.querySelector(".buy").onclick=()=>{
+  openDetail(product.id);
+};
+
+card.querySelector(".photo").onclick=()=>{
+  openDetail(product.id);
+};
+
+return card;
+
+}
+
+
+/* =====================================================
+ESCAPE HTML
+===================================================== */
+
+function escapeHtml(value){
+
+return String(value)
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+/* =====================================================
+PAGINATION
+===================================================== */
+
+function renderPagination(totalPages){
+
+const pagination=
+document.getElementById("pagination");
+
+pagination.innerHTML="";
+
+if(totalPages<=1){
+  return;
+}
+
+const previous=document.createElement("button");
+
+previous.textContent="← Previous";
+
+previous.disabled=currentPage===1;
+
+previous.onclick=()=>{
+  if(currentPage>1){
+    currentPage--;
+    render();
+    scrollProducts();
+  }
+};
+
+pagination.appendChild(previous);
+
+const maxButtons=7;
+
+let start=Math.max(
+1,
+currentPage-Math.floor(maxButtons/2)
+);
+
+let end=Math.min(
+totalPages,
+start+maxButtons-1
+);
+
+if(end-start<maxButtons-1){
+
+start=Math.max(
+1,
+end-maxButtons+1
+);
+
+}
+
+for(let page=start;page<=end;page++){
+
+const button=document.createElement("button");
+
+button.textContent=page;
+
+if(page===currentPage){
+  button.className="active";
+}
+
+button.onclick=()=>{
+  currentPage=page;
+  render();
+  scrollProducts();
+};
+
+pagination.appendChild(button);
+
+}
+
+const info=document.createElement("span");
+
+info.className="pageInfo";
+
+info.textContent=
+"Page "+currentPage+" of "+totalPages;
+
+pagination.appendChild(info);
+
+const next=document.createElement("button");
+
+next.textContent="Next →";
+
+next.disabled=currentPage===totalPages;
+
+next.onclick=()=>{
+  if(currentPage<totalPages){
+    currentPage++;
+    render();
+    scrollProducts();
+  }
+};
+
+pagination.appendChild(next);
+
+}
+
+
+function scrollProducts(){
+
+document.getElementById("products")
+.scrollIntoView({
+  behavior:"smooth",
+  block:"start"
+});
+
+}
+
+
+/* =====================================================
+CLEAR SEARCH
+===================================================== */
+
+function clearSearch(){
+
+syncSearch("");
+
+document.getElementById("filter").value="all";
+
+currentPage=1;
+
+render();
+
+}
+
+
+/* =====================================================
+PRODUCT DETAIL
+===================================================== */
+
+function openDetail(id){
+
+const product=
+products.find(p=>p.id===id);
+
+if(!product)return;
+
+selectedProduct=product;
+
+document.getElementById("dname").textContent=
+product.name;
+
+document.getElementById("dcat").textContent=
+product.category;
+
+document.getElementById("dprice").textContent=
+money(product.price);
+
+document.getElementById("ddesc").textContent=
+product.description;
+
+const img=document.getElementById("dimg");
+
+img.src=product.image;
+
+img.alt=product.name;
+
+img.onerror=()=>{
+  img.src=product.fallback;
+};
+
+document.getElementById("detailModal")
+.classList.add("show");
+
+}
+
+
+function closeDetail(){
+
+document.getElementById("detailModal")
+.classList.remove("show");
+
+selectedProduct=null;
+
+}
+
+
+function detailCart(){
+
+if(selectedProduct){
+
+addToCart(selectedProduct.id);
+
+closeDetail();
+
+}
+
+}
+
+
+function buySelected(){
+
+if(!selectedProduct)return;
+
+window.open(
+PAYSTACK_LINK,
+"_blank",
+"noopener,noreferrer"
+);
+
+toast("Opening Paystack checkout...");
+
+}
+
+
+/* =====================================================
+CART
+===================================================== */
+
+function addToCart(id){
+
+const product=
+products.find(p=>p.id===id);
+
+if(!product)return;
+
+const existing=
+cart.find(item=>item.id===id);
+
+if(existing){
+
+existing.qty++;
+
+}else{
+
+cart.push({
+  id:product.id,
+  qty:1
+});
+
+}
+
+saveCart();
+updateCartUI();
+
+toast(product.name+" added to cart");
+
+}
+
+
+function removeFromCart(id){
+
+cart=
+cart.filter(item=>item.id!==id);
+
+saveCart();
+updateCartUI();
+
+}
+
+
+function changeQty(id,amount){
+
+const item=
+cart.find(item=>item.id===id);
+
+if(!item)return;
+
+item.qty+=amount;
+
+if(item.qty<=0){
+
+removeFromCart(id);
+return;
+
+}
+
+saveCart();
+updateCartUI();
+
+}
+
+
+/* =====================================================
+CART UI
+===================================================== */
+
+function openCart(){
+
+updateCartUI();
+
+document.getElementById("cartOverlay")
+.classList.add("show");
+
+}
+
+
+function closeCart(){
+
+document.getElementById("cartOverlay")
+.classList.remove("show");
+
+}
+
+
+function updateCartUI(){
+
+const container=
+document.getElementById("cartItems");
+
+container.innerHTML="";
+
+let total=0;
+let count=0;
+
+cart.forEach(item=>{
+
+const product=
+products.find(p=>p.id===item.id);
+
+if(!product)return;
+
+total+=product.price*item.qty;
+count+=item.qty;
+
+const div=document.createElement("div");
+
+div.className="item";
+
+div.innerHTML=`
+
+<img
+src="${product.image}"
+alt="${escapeHtml(product.name)}"
+>
+
+<div style="flex:1">
+
+<strong>
+${escapeHtml(product.name)}
+</strong>
+
+<div class="small">
+₦${money(product.price)}
+</div>
+
+<div class="qty">
+
+<button>−</button>
+
+<strong>${item.qty}</strong>
+
+<button>+</button>
+
+<button style="color:#ef4444">
+Remove
+</button>
+
+</div>
+
+</div>
+`;
+
+const img=div.querySelector("img");
+
+img.onerror=()=>{
+  img.src=product.fallback;
+};
+
+const buttons=div.querySelectorAll(".qty button");
+
+buttons[0].onclick=()=>{
+  changeQty(product.id,-1);
+};
+
+buttons[1].onclick=()=>{
+  changeQty(product.id,1);
+};
+
+buttons[2].onclick=()=>{
+  removeFromCart(product.id);
+};
+
+container.appendChild(div);
+
+});
+
+if(!cart.length){
+
+container.innerHTML=`
+<div style="text-align:center;padding:40px 10px">
+<h3>🛒 Your cart is empty</h3>
+<p>Add products to your cart to continue.</p>
+</div>
+`;
+
+}
+
+document.getElementById("total").textContent=
+money(total);
+
+document.getElementById("count").textContent=count;
+
+document.getElementById("totalCart").textContent=count;
+
+}
+
+
+/* =====================================================
+LOCAL STORAGE
+===================================================== */
+
+function saveCart(){
+
+try{
+
+localStorage.setItem(
+"chinotech_one_cart",
+JSON.stringify(cart)
+);
+
+}catch(error){
+
+console.log("Cart could not be saved.");
+
+}
+
+}
+
+
+function loadCart(){
+
+try{
+
+const saved=
+localStorage.getItem(
+"chinotech_one_cart"
+);
+
+if(saved){
+
+cart=JSON.parse(saved);
+
+if(!Array.isArray(cart)){
+  cart=[];
+}
+
+}
+
+}catch(error){
+
+cart=[];
+
+}
+
+updateCartUI();
+
+}
+
+
+/* =====================================================
+PAYSTACK
+===================================================== */
+
+function checkout(){
+
+if(!cart.length){
+
+toast("Your cart is empty.");
+
+return;
+
+}
+
+window.open(
+PAYSTACK_LINK,
+"_blank",
+"noopener,noreferrer"
+);
+
+toast("Opening Paystack checkout...");
+
+}
+
+
+/* =====================================================
+SELL
+===================================================== */
+
+function openSell(){
+
+document.getElementById("sellModal")
+.classList.add("show");
+
+}
+
+
+function closeSell(){
+
+document.getElementById("sellModal")
+.classList.remove("show");
+
+}
+
+
+function sell(event){
+
+event.preventDefault();
+
+const name=
+document.getElementById("sn").value.trim();
+
+const category=
+document.getElementById("sc").value;
+
+const price=
+Number(document.getElementById("sp").value);
+
+const image=
+document.getElementById("si").value.trim();
+
+const description=
+document.getElementById("sd").value.trim();
+
+if(!name){
+
+toast("Enter a product name.");
+
+return;
+
+}
+
+if(!price || price<1 || price>300000){
+
+toast("Price must be between ₦1 and ₦300,000.");
+
+return;
+
+}
+
+const newId=
+products.length+1;
+
+const fallback=
+fallbackImage(name,category);
+
+const newProduct={
+
+id:newId,
+
+name:name,
+
+category:category,
+
+price:price,
+
+rating:5,
+
+badge:"SELLER",
+
+image:image ||
+productImage(name,category,newId),
+
+fallback:fallback,
+
+description:
+description ||
+"Product listed on CHINOTECH ONE Marketplace."
+
+};
+
+products.unshift(newProduct);
+
+document.getElementById("sellForm").reset();
+
+closeSell();
+
+currentPage=1;
+
+render();
+
+document.getElementById("totalProducts").textContent=
+products.length;
+
+document.getElementById("headingCount").textContent=
+products.length;
+
+toast("Product published successfully.");
+
+}
+
+
+/* =====================================================
+MODAL CLOSING
+===================================================== */
+
+document.getElementById("cartOverlay")
+.addEventListener("click",function(event){
+
+if(event.target===this){
+  closeCart();
+}
+
+});
+
+document.getElementById("detailModal")
+.addEventListener("click",function(event){
+
+if(event.target===this){
+  closeDetail();
+}
+
+});
+
+document.getElementById("sellModal")
+.addEventListener("click",function(event){
+
+if(event.target===this){
+  closeSell();
+}
+
+});
+
+
+/* =====================================================
+START
+===================================================== */
+
+init();
+
+</script>
+
+</body>
+</html>
