@@ -1,0 +1,16 @@
+{
+  "name": "CHINOTECH ONE Marketplace",
+  "short_name": "CHINOTECH ONE",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#111827",
+  "theme_color": "#111827",
+  "icons": [
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
