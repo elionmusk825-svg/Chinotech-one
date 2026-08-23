@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#111827">
+<title>CHINOTECH ONE MARKETPLACE</title>
+
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+background:#f3f4f6;
+color:#111827
+}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+
+header{
+position:sticky;
+top:0;
+z-index:100;
+background:#111827;
+color:#fff;
+box-shadow:0 2px 12px #0005
+}
+
+.top{
+max-width:1500px;
+margin:auto;
+padding:12px;
+display:flex;
+gap:10px;
+align-items:center;
+flex-wrap:wrap
+}
+
+.logo{
+font-weight:900;
+font-size:20px;
+min-width:210px
+}
+
+.logo b{
+background:#facc15;
+color:#111827;
+padding:8px;
+border-radius:9px;
+margin-right:7px
+}
+
+.search{
+flex:1;
+display:flex;
+min-width:230px
+}
+
+.search input{
+flex:1;
+padding:13px;
+border:0;
+outline:0;
+border-radius:8px 0 0 8px
+}
+
+.search button{
+border:0;
+background:#facc15;
+padding:0 18px;
+font-weight:900;
+border-radius:0 8px 8px 0
+}
+
+.head{
+display:flex;
+gap:6px
+}
+
+.head button{
+border:1px solid #374151;
+background:#1f2937;
+color:#fff;
+padding:10px;
+border-radius:7px
+}
+
+.nav{
+overflow:auto;
+background:#1f2937;
+white-space:nowrap
+}
+
+.navin{
+max-width:1500px;
+margin:auto;
+display:flex;
+gap:4px;
+padding:5px
+}
+
+.nav button{
+border:0;
+background:none;
+color:#fff;
+font-size:12px;
+padding:10px;
+border-radius:6px
+}
+
+.nav button:hover{background:#374151}
+
+.hero{
+max-width:1500px;
+margin:18px auto;
+padding:0 12px
+}
+
+.heroBox{
+min-height:340px;
+border-radius:18px;
+padding:35px;
+color:#fff;
+background:
+linear-gradient(90deg,#111827ee,#11182755),
+url("https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1600&q=85")
+center/cover
+}
+
+.hero h1{
+font-size:clamp(32px,5vw,56px);
+max-width:700px;
+margin:0 0 12px
+}
+
+.hero p{
+max-width:650px;
+line-height:1.6
+}
+
+.btn{
+border:0;
+padding:12px 18px;
+border-radius:8px;
+font-weight:800;
+margin:3px
+}
+
+.yellow{background:#facc15;color:#111827}
+.dark{background:#111827;color:#fff}
+
+.section{
+max-width:1500px;
+margin:22px auto;
+padding:0 12px
+}
+
+.section h2{margin:0 0 14px}
+
+.cats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+gap:9px
+}
+
+.cat{
+background:#fff;
+border:1px solid #ddd;
+border-radius:10px;
+padding:13px;
+text-align:center;
+cursor:pointer
+}
+
+.cat:hover{
+box-shadow:0 5px 15px #0002;
+transform:translateY(-2px)
+}
+
+.cat span{
+font-size:28px;
+display:block;
+margin-bottom:6px
+}
+
+.filters{
+background:#fff;
+padding:12px;
+border-radius:10px;
+display:flex;
+gap:8px;
+flex-wrap:wrap;
+margin-bottom:15px
+}
+
+.filters input,
+.filters select{
+padding:10px;
+border:1px solid #ccc;
+border-radius:7px;
+outline:none
+}
+
+.filters input{
+flex:1;
+min-width:200px
+}
+
+.products{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:13px
+}
+
+.card{
+background:#fff;
+border:1px solid #e5e7eb;
+border-radius:10px;
+overflow:hidden;
+transition:.2s
+}
+
+.card:hover{
+transform:translateY(-3px);
+box-shadow:0 8px 20px #0001
+}
+
+.photo{
+height:200px;
+position:relative;
+background:#eee
+}
+
+.photo img{
+width:100%;
+height:100%;
+object-fit:cover
+}
+
+.badge{
+position:absolute;
+top:8px;
+left:8px;
+background:#ef4444;
+color:#fff;
+font-size:10px;
+font-weight:bold;
+padding:5px;
+border-radius:5px
+}
+
+.body{padding:11px}
+
+.small{
+font-size:11px;
+color:#6b7280
+}
+
+.name{
+font-weight:800;
+min-height:35px;
+margin-top:4px
+}
+
+.stars{
+color:#f59e0b;
+font-size:12px;
+margin:5px 0
+}
+
+.price{
+font-size:18px;
+font-weight:900
+}
+
+.actions{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:6px;
+margin-top:9px
+}
+
+.actions button{
+border:0;
+padding:9px;
+border-radius:6px;
+font-weight:bold;
+font-size:11px
+}
+
+.cart{background:#facc15}
+.buy{background:#111827;color:#fff}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:10px
+}
+
+.stat{
+background:#fff;
+padding:17px;
+border-radius:10px;
+border:1px solid #ddd
+}
+
+.stat b{
+font-size:24px;
+display:block;
+margin-top:5px
+}
+
+.infoGrid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px
+}
+
+.infoCard{
+background:#fff;
+padding:20px;
+border-radius:12px;
+border:1px solid #ddd
+}
+
+footer{
+margin-top:40px;
+background:#111827;
+color:#fff;
+padding:35px 15px
+}
+
+.foot{
+max-width:1500px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px
+}
+
+.foot h3{color:#facc15}
+
+.foot p{
+color:#d1d5db;
+line-height:1.7
+}
+
+.overlay,
+.modal{
+position:fixed;
+inset:0;
+background:#0009;
+z-index:200;
+display:none
+}
+
+.overlay.show{display:block}
+
+.modal.show{
+display:flex;
+align-items:center;
+justify-content:center;
+padding:15px
+}
+
+.drawer{
+margin-left:auto;
+background:#fff;
+height:100%;
+width:min(450px,95%);
+padding:18px;
+overflow:auto
+}
+
+.box{
+background:#fff;
+width:min(650px,100%);
+max-height:92vh;
+overflow:auto;
+border-radius:12px;
+padding:20px
+}
+
+.drawerhead{
+display:flex;
+justify-content:space-between;
+align-items:center
+}
+
+.close{
+border:0;
+background:#ef4444;
+color:#fff;
+padding:8px;
+border-radius:5px
+}
+
+.item{
+display:flex;
+gap:10px;
+padding:12px 0;
+border-bottom:1px solid #ddd
+}
+
+.item img{
+width:65px;
+height:65px;
+object-fit:cover;
+border-radius:6px
+}
+
+.qty button{
+border:1px solid #ccc;
+background:#fff;
+margin:3px;
+padding:3px 8px
+}
+
+.pay{
+width:100%;
+padding:14px;
+border:0;
+background:#00c853;
+color:#fff;
+font-weight:900;
+border-radius:7px;
+margin-top:15px
+}
+
+.box input,
+.box select,
+.box textarea{
+width:100%;
+padding:11px;
+margin:5px 0 12px;
+border:1px solid #ccc;
+border-radius:6px
+}
+
+.detailimg{
+width:100%;
+max-height:400px;
+object-fit:cover;
+border-radius:8px
+}
+
+.toast{
+position:fixed;
+bottom:20px;
+left:50%;
+transform:translate(-50%,100px);
+background:#111827;
+color:#fff;
+padding:12px 18px;
+border-radius:7px;
+z-index:500;
+transition:.25s
+}
+
+.toast.show{
+transform:translate(-50%,0)
+}
+
+.empty{
+grid-column:1/-1;
+background:#fff;
+padding:40px;
+text-align:center;
+border-radius:10px
+}
+
+@media(max-width:1100px){
+.products{grid-template-columns:repeat(4,1fr)}
+}
+
+@media(max-width:800px){
+.products{grid-template-columns:repeat(3,1fr)}
+.stats{grid-template-columns:repeat(2,1fr)}
+.foot{grid-template-columns:repeat(2,1fr)}
+.infoGrid{grid-template-columns:1fr}
+}
+
+@media(max-width:520px){
+.products{grid-template-columns:repeat(2,1fr)}
+.photo{height:150px}
+.foot{grid-template-columns:1fr}
+.logo{width:100%}
+.heroBox{padding:25px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="top">
+
+<div class="logo">
+<b>C1</b> CHINOTECH ONE
+</div>
+
+<div class="search">
+
+<input
+id="q"
+placeholder="Search products..."
+onkeydown="searchEnter(event)"
+>
+
+<button onclick="searchNow()">
+🔍 SEARCH
+</button>
+
+</div>
+
+<div class="head">
+
+<button onclick="openCart()">
+🛒 <span id="count">0</span>
+</button>
+
+<button onclick="openSell()">
+SELL
+</button>
+
+</div>
+
+</div>
+
+<div class="nav">
+<div class="navin" id="nav"></div>
+</div>
+
+</header>
+
+
+<section class="hero">
+
+<div class="heroBox">
+
+<h1>Everything You Need in One Marketplace</h1>
+
+<p>
+Shop phones, laptops, electronics, fashion, beauty,
+home appliances, gadgets, accessories and more.
+</p>
+
+<button
+class="btn yellow"
+onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+SHOP NOW
+</button>
+
+<button class="btn dark" onclick="openSell()">
+SELL YOUR PRODUCT
+</button>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<h2>Categories</h2>
+
+<div class="cats" id="cats"></div>
+
+</section>
+
+
+<section class="section">
+
+<h2>Marketplace Overview</h2>
+
+<div class="stats">
+
+<div class="stat">
+Products
+<b id="totalProducts">800</b>
+</div>
+
+<div class="stat">
+Categories
+<b id="totalCats">0</b>
+</div>
+
+<div class="stat">
+Cart Items
+<b id="totalCart">0</b>
+</div>
+
+<div class="stat">
+Maximum Price
+<b>₦300K</b>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<div class="infoGrid">
+
+<div class="infoCard">
+<h3>🚚 Easy Shopping</h3>
+<p>Browse products and add them to your shopping cart.</p>
+</div>
+
+<div class="infoCard">
+<h3>💳 Paystack Checkout</h3>
+<p>Continue to payment using your Paystack checkout.</p>
+</div>
+
+<div class="infoCard">
+<h3>🔥 Affordable Deals</h3>
+<p>Marketplace products are displayed at or below ₦300,000.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section" id="products">
+
+<h2>All Products — 800 Items</h2>
+
+<div class="filters">
+
+<input
+id="q2"
+placeholder="Search products..."
+onkeydown="searchEnter(event)"
+>
+
+<button
+class="btn yellow"
+onclick="searchNow()">
+🔍 SEARCH
+</button>
+
+<select id="filter" onchange="render()">
+<option value="all">All Categories</option>
+</select>
+
+<select id="sort" onchange="render()">
+<option value="rec">Recommended</option>
+<option value="low">Price: Low to High</option>
+<option value="high">Price: High to Low</option>
+<option value="az">Name A-Z</option>
+</select>
+
+</div>
+
+<div class="products" id="grid"></div>
+
+</section>
+
+
+<div class="overlay" id="cartOverlay">
+
+<div class="drawer">
+
+<div class="drawerhead">
+<h2>Shopping Cart</h2>
+<button class="close" onclick="closeCart()">×</button>
+</div>
+
+<div id="cartItems"></div>
+
+<h2>
+Total: ₦<span id="total">0</span>
+</h2>
+
+<button class="pay" onclick="checkout()">
+💳 PAY WITH PAYSTACK
+</button>
+
+</div>
+
+</div>
+
+
+<div class="modal" id="detailModal">
+
+<div class="box">
+
+<div class="drawerhead">
+
+<h2 id="dname"></h2>
+
+<button class="close" onclick="closeDetail()">×</button>
+
+</div>
+
+<img id="dimg" class="detailimg">
+
+<p id="ddesc"></p>
+
+<h2>₦<span id="dprice"></span></h2>
+
+<button class="btn yellow" onclick="detailCart()">
+🛒 ADD TO CART
+</button>
+
+<button class="btn dark" onclick="buySelected()">
+💳 BUY NOW
+</button>
+
+</div>
+
+</div>
+
+
+<div class="modal" id="sellModal">
+
+<div class="box">
+
+<div class="drawerhead">
+
+<h2>Sell on CHINOTECH ONE</h2>
+
+<button class="close" onclick="closeSell()">×</button>
+
+</div>
+
+<form id="sellForm" onsubmit="sell(event)">
+
+<label>Product name</label>
+<input id="sn" required>
+
+<label>Category</label>
+<select id="sc" required></select>
+
+<label>Price ₦</label>
+<input id="sp" type="number" min="1" max="300000" required>
+
+<label>Product image URL</label>
+<input id="si" placeholder="Optional">
+
+<label>Description</label>
+<textarea id="sd"></textarea>
+
+<button class="btn yellow" type="submit">
+PUBLISH PRODUCT
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+
+<div class="toast" id="toast"></div>
+
+
+<footer>
+
+<div class="foot">
+
+<div>
+<h3>CHINOTECH ONE</h3>
+<p>
+Online marketplace for electronics,
+fashion, gadgets, beauty, home products
+and accessories.
+</p>
+</div>
+
+<div>
+<h3>Shop</h3>
+<p>
+Phones<br>
+Laptops<br>
+Fashion<br>
+Beauty<br>
+Electronics<br>
+Home
+</p>
+</div>
+
+<div>
+<h3>Services</h3>
+<p>
+Buy products<br>
+Sell products<br>
+Shopping cart<br>
+Product search<br>
+Checkout
+</p>
+</div>
+
+<div>
+<h3>Payment</h3>
+<p>
+Secure checkout through Paystack.
+</p>
+</div>
+
+</div>
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+PAYSTACK
+===================================================== */
+
+const PAYSTACK_LINK=
+"https://paystack.shop/pay/kkof1e1670";
+
+
+/* =====================================================
+CATEGORIES
+===================================================== */
+
+const categoryData={
+
+Phones:{
+icon:"📱",
+items:[
+"iPhone 13",
+"iPhone 12",
+"iPhone 11",
+"iPhone 14",
+"iPhone 15",
+"Samsung Galaxy A15",
+"Samsung Galaxy A25",
+"Samsung Galaxy S23",
+"Samsung Galaxy S24",
+"Tecno Spark",
+"Tecno Camon",
+"Infinix Hot",
+"Infinix Note",
+"Google Pixel",
+"OnePlus Phone"
+]},
+
+Laptops:{
+icon:"💻",
+items:[
+"HP Laptop",
+"Dell Laptop",
+"Lenovo Laptop",
+"ASUS Laptop",
+"Acer Laptop",
+"MacBook Air",
+"MacBook Pro",
+"Gaming Laptop",
+"Business Laptop"
+]},
+
+Televisions:{
+icon:"📺",
+items:[
+"Samsung Smart TV",
+"LG Smart TV",
+"Hisense TV",
+"TCL Smart TV",
+"Sony TV",
+"LED Television"
+]},
+
+Speakers:{
+icon:"🔊",
+items:[
+"Bluetooth Speaker",
+"Portable Speaker",
+"Party Speaker",
+"Wireless Speaker",
+"Home Theater Speaker"
+]},
+
+Headphones:{
+icon:"🎧",
+items:[
+"Wireless Headphones",
+"Gaming Headset",
+"Noise Cancelling Headphones",
+"Bluetooth Headphones"
+]},
+
+Earbuds:{
+icon:"🎧",
+items:[
+"Wireless Earbuds",
+"Bluetooth Earbuds",
+"Noise Cancelling Earbuds",
+"Sports Earbuds"
+]},
+
+"Smart Watches":{
+icon:"⌚",
+items:[
+"Smart Watch",
+"Fitness Smart Watch",
+"Sports Smart Watch",
+"Bluetooth Smart Watch"
+]},
+
+Watches:{
+icon:"⌚",
+items:[
+"Men Wrist Watch",
+"Women Wrist Watch",
+"Digital Watch",
+"Classic Wrist Watch"
+]},
+
+Shoes:{
+icon:"👟",
+items:[
+"Sneakers",
+"Running Shoes",
+"Casual Shoes",
+"Fashion Shoes",
+"Sports Shoes"
+]},
+
+Boots:{
+icon:"🥾",
+items:[
+"Men Boots",
+"Women Boots",
+"Work Boots",
+"Fashion Boots",
+"Safety Boots"
+]},
+
+Bags:{
+icon:"👜",
+items:[
+"Travel Backpack",
+"School Backpack",
+"Handbag",
+"Laptop Bag",
+"Travel Bag",
+"Crossbody Bag"
+]},
+
+"Men Clothes":{
+icon:"👔",
+items:[
+"Men Shirt",
+"Men T-Shirt",
+"Men Jeans",
+"Men Trousers",
+"Men Jacket",
+"Men Shorts"
+]},
+
+"Women Clothes":{
+icon:"👗",
+items:[
+"Women Dress",
+"Women Top",
+"Women Skirt",
+"Women Jeans",
+"Women Jacket",
+"Fashion Dress"
+]},
+
+"Kids Clothes":{
+icon:"🧒",
+items:[
+"Kids Shirt",
+"Kids Dress",
+"Kids Shoes",
+"Kids Trousers",
+"Kids Jacket"
+]},
+
+Beauty:{
+icon:"💄",
+items:[
+"Beauty Set",
+"Face Cream",
+"Body Lotion",
+"Perfume",
+"Skin Care Set"
+]},
+
+Makeup:{
+icon:"💄",
+items:[
+"Makeup Set",
+"Foundation",
+"Lipstick",
+"Eye Makeup",
+"Makeup Brush Set"
+]},
+
+Jewelry:{
+icon:"💎",
+items:[
+"Jewelry Set",
+"Bracelet",
+"Ring",
+"Fashion Jewelry",
+"Gold Style Necklace"
+]},
+
+Necklaces:{
+icon:"📿",
+items:[
+"Fashion Necklace",
+"Pendant Necklace",
+"Chain Necklace",
+"Beaded Necklace"
+]},
+
+Earrings:{
+icon:"💎",
+items:[
+"Stud Earrings",
+"Hoop Earrings",
+"Fashion Earrings",
+"Crystal Earrings"
+]},
+
+Eyeglasses:{
+icon:"👓",
+items:[
+"Fashion Glasses",
+"Reading Glasses",
+"Sun Glasses",
+"Clear Frame Glasses"
+]},
+
+"Power Banks":{
+icon:"🔋",
+items:[
+"Power Bank 10000mAh",
+"Power Bank 20000mAh",
+"Fast Charge Power Bank",
+"Mini Power Bank"
+]},
+
+Chargers:{
+icon:"🔌",
+items:[
+"USB Charger",
+"Fast Charger",
+"Type-C Charger",
+"iPhone Charger",
+"Multi-Port Charger"
+]},
+
+Cameras:{
+icon:"📷",
+items:[
+"Digital Camera",
+"DSLR Camera",
+"Mirrorless Camera",
+"Action Camera",
+"Security Camera"
+]},
+
+Gaming:{
+icon:"🎮",
+items:[
+"Gaming Controller",
+"Gaming Keyboard",
+"Gaming Mouse",
+"Game Console",
+"Gaming Headset"
+]},
+
+Tablets:{
+icon:"📱",
+items:[
+"Android Tablet",
+"Samsung Tablet",
+"Lenovo Tablet",
+"iPad",
+"Kids Tablet"
+]},
+
+Drones:{
+icon:"🚁",
+items:[
+"Camera Drone",
+"Mini Drone",
+"Professional Drone",
+"HD Drone",
+"Foldable Drone"
+]},
+
+Refrigerators:{
+icon:"🧊",
+items:[
+"Home Refrigerator",
+"Mini Refrigerator",
+"Double Door Refrigerator",
+"Single Door Refrigerator"
+]},
+
+Fans:{
+icon:"🌀",
+items:[
+"Standing Fan",
+"Table Fan",
+"Ceiling Fan",
+"Rechargeable Fan",
+"Portable Fan"
+]},
+
+Lights:{
+icon:"💡",
+items:[
+"LED Light",
+"Smart Light",
+"Rechargeable Light",
+"Outdoor Light",
+"Security Light"
+]},
+
+Kitchen:{
+icon:"🍳",
+items:[
+"Blender",
+"Electric Kettle",
+"Air Fryer",
+"Rice Cooker",
+"Kitchen Appliance Set"
+]},
+
+"Home Appliances":{
+icon:"🏠",
+items:[
+"Microwave",
+"Washing Machine",
+"Electric Iron",
+"Vacuum Cleaner",
+"Air Conditioner"
+]},
+
+Sports:{
+icon:"⚽",
+items:[
+"Football",
+"Basketball",
+"Tennis Racket",
+"Sports Shoes",
+"Gym Equipment"
+]},
+
+Tools:{
+icon:"🔧",
+items:[
+"Power Drill",
+"Tool Set",
+"Screwdriver Set",
+"Welding Tool",
+"Hand Tools"
+]},
+
+Bicycles:{
+icon:"🚲",
+items:[
+"Mountain Bicycle",
+"Road Bicycle",
+"Kids Bicycle",
+"City Bicycle"
+]},
+
+Motorcycles:{
+icon:"🏍️",
+items:[
+"Motorcycle",
+"Scooter",
+"Sport Bike",
+"Commuter Motorcycle"
+]},
+
+Cars:{
+icon:"🚗",
+items:[
+"Toyota Car",
+"Honda Car",
+"Lexus Car",
+"Mercedes Car",
+"Hyundai Car"
+]},
+
+Supermarket:{
+icon:"🛒",
+items:[
+"Food Items",
+"Household Items",
+"Cleaning Products",
+"Storage Items"
+]},
+
+Underwear:{
+icon:"🩲",
+items:[
+"Men Underwear",
+"Women Underwear",
+"Kids Underwear"
+]},
+
+"Hair Accessories":{
+icon:"🎀",
+items:[
+"Hair Clips",
+"Hair Band",
+"Hair Brush",
+"Hair Accessories Set"
+]},
+
+Wigs:{
+icon:"💇",
+items:[
+"Human Hair Wig",
+"Fashion Wig",
+"Curly Wig",
+"Straight Wig"
+]},
+
+"Weave-on":{
+icon:"💇",
+items:[
+"Hair Weave",
+"Straight Weave",
+"Curly Weave",
+"Body Wave"
+]}
+
+};
+
+
+/* =====================================================
+IMAGE SYSTEM
+Each product receives an image URL based on
+its actual product name.
+===================================================== */
+
+function productImage(name,category,index){
+
+/*
+  The image service searches the exact product/category
+  wording. The index is added so listings don't all
+  request the same URL.
+*/
+
+const search=
+encodeURIComponent(
+name+" "+category+" product"
+);
+
+return "https://loremflickr.com/900/700/"+search+
+"?lock="+(index+1000);
+
+}
+
+
+/* =====================================================
+PRICE
+===================================================== */
+
+const basePrices={
+
+Phones:120000,
+Laptops:180000,
+Televisions:120000,
+Speakers:25000,
+Headphones:18000,
+Earbuds:12000,
+"Smart Watches":18000,
+Watches:15000,
+Shoes:20000,
+Boots:25000,
+Bags:18000,
+"Men Clothes":12000,
+"Women Clothes":15000,
+"Kids Clothes":8000,
+Beauty:10000,
+Makeup:8000,
+Jewelry:12000,
+Necklaces:10000,
+Earrings:7000,
+Eyeglasses:8000,
+"Power Banks":10000,
+Chargers:5000,
+Cameras:100000,
+Gaming:20000,
+Tablets:90000,
+Drones:100000,
+Refrigerators:180000,
+Fans:25000,
+Lights:5000,
+Kitchen:12000,
+"Home Appliances":30000,
+Sports:10000,
+Tools:15000,
+Bicycles:50000,
+Motorcycles:250000,
+Cars:300000,
+Supermarket:5000,
+Underwear:5000,
+"Hair Accessories":3000,
+Wigs:30000,
+"Weave-on":25000
+
+};
+
+
+/* =====================================================
+CREATE EXACTLY 800 PRODUCTS
+===================================================== */
+
+let products=[];
+let id=1;
+
+const categoryNames=Object.keys(categoryData);
+
+for(let round=0;round<100;round++){
+
+for(let c=0;c<categoryNames.length;c++){
+
+if(products.length>=800)break;
+
+const category=categoryNames[c];
+
+const data=categoryData[category];
+
+const baseName=
+data.items[round%data.items.length];
+
+const variant=
+round%4===0?"Premium":
+round%4===1?"New":
+round%4===2?"Classic":
+"Original";
+
+let price=
+(basePrices[category]||10000)+
+(round%10)*2500;
+
+if(price>300000)price=300000;
+
+const product={
+id:id,
+name:baseName+" "+variant+" "+(round+1),
+category:category,
+price:price,
+rating:3+(round%3),
+badge:
+round%5===0?"HOT":
+round%5===1?"NEW":
+round%5===2?"DEAL":"",
+image:productImage(
+baseName,
+category,
+id
+),
+description:
+"Quality "+baseName+
+" available in the CHINOTECH ONE Marketplace."
+};
+
+products.push(product);
+
+id++;
+
+}
+
+}
+
+products=products.slice(0,800);
+
+
+/* =====================================================
+STATE
+===================================================== */
+
+let cart=[];
+let selectedProduct=null;
+
+
+/* =====================================================
+MONEY
+===================================================== */
+
+function money(value){
+
+return Number(value)
+.toLocaleString("en-NG");
+
+}
+
+
+/* =================================================
